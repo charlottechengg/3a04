@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Timer from './Timer.js';
 import Pair from './Pair.js';
+import correctImg from './Assets/check.png';
+import wrongImg from './Assets/delete.png';
+
 
 class Chalkboard extends Component {
 	constructor(props) {
@@ -26,6 +29,7 @@ class Chalkboard extends Component {
 		this.keyHandling = this.keyHandling.bind(this);
 		this.updateNextPair = this.updateNextPair.bind(this);
 		this.generateRandomExpressions = this.generateRandomExpressions.bind(this);
+        this.displayCorrectness = this.displayCorrectness.bind(this);
 	}
 
 	componentWillMount() {
@@ -78,8 +82,35 @@ class Chalkboard extends Component {
 			currIndex: this.state.currIndex + 1,
 			numCorrect: this.state.numCorrect + increment,
 		});
+
+		this.displayCorrectness(correct);
         return this.isGameOver();
 	}
+
+    displayCorrectness(correct){
+        // let text = correct ? "correct" : "Wrong";
+        // let node = document.createElement('div');
+		// node.append(document.createTextNode(text));
+		// node.setAttribute('class', 'game-middle');
+		// document.getElementById("game-middle").append(node);
+		// setTimeout(() => {
+		// 	document.getElementById("game-middle").removeChild(node);
+		// }, 300);
+
+        let path = correct ? correctImg : wrongImg;
+        let altText = correct ? "Correct" : "Wrong";
+        let node = document.createElement('img');
+		node.src = path;
+		node.setAttribute('class', 'game-middle');
+        node.setAttribute('alt', altText);
+        node.setAttribute('height', "80px");
+        node.setAttribute('width', "auto");
+		document.getElementById("game-middle").append(node);
+		setTimeout(() => {
+			document.getElementById("game-middle").removeChild(node);
+		}, 300);
+
+    }
 
 	isBigger(i) {
 		let leftVal = eval(this.state.leftExpressions[i]);
@@ -230,7 +261,7 @@ class Chalkboard extends Component {
 								onTimer={this.handleTimer}
 							/>
 						</div>
-						<div className="game-middle">
+						<div className="game-middle" id = "game-middle">
 							<Pair
 								rightExpression={this.state.rightExpressions[this.state.currIndex]}
 								leftExpression={this.state.leftExpressions[this.state.currIndex]}
