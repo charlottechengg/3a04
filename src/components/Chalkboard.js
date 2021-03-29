@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import '../Chalkboard.css';
 import Timer from './Timer.js';
 import Pair from './Pair.js';
 import { evaluate } from 'mathjs';
 import correctImg from './Assets/check.png';
 import wrongImg from './Assets/delete.png';
-
+import RulesWindow from './RulesWindow.js';
 
 class Chalkboard extends Component {
 	constructor(props) {
@@ -176,11 +177,7 @@ class Chalkboard extends Component {
 		return exp;
 	}
 
-    expressionToString(exp){
-        // exp.forEach((item, index) => {
-        //     if(item === '*') exp[index] = '\u00D7'; 
-        //     else if(item === '/') exp[index] = '\u00F7'; });
-        
+    expressionToString(exp){        
         let str = exp.toString().replace('*', '\u00D7').replace('/','\u00F7');
         return str;
 
@@ -215,29 +212,7 @@ class Chalkboard extends Component {
 			return (
 				<div>
 					<div className="game-container">
-						<div className="window-container">
-							<div className="window">
-								<div className="rules-cover">
-									<h4 className="rules-heading">
-										<span className="rules-heading-span">Chalkboard Challenge</span>
-									</h4>
-								</div>
-								<div className="rules-details">
-									<ul className="rules-details">
-										<li>Train your arithmetic skills by determing which one is greater</li>
-										<li>Use arrow on your keyboard to play. </li>
-										<li>Left</li>
-										<li>Right</li>
-										<li>Equal Up</li>
-									</ul>
-								</div>
-								<div className="rules-button">
-									<button className="start-button" onClick={this.closeRules}>
-										Start
-									</button>
-								</div>
-							</div>
-						</div>
+                        <RulesWindow closeRules = {this.closeRules}/>
 					</div>
 				</div>
 			);
@@ -266,22 +241,26 @@ class Chalkboard extends Component {
 			);
 		} else {
 			return (
-				<div style={{ display: 'flex' }}>
+				<div>
 					<div className="game-container">
-						<div className="game-corner">
+						<div className="game-header">
 							<Timer
 								initialMinutes={this.state.minutes}
 								initialSeconds={this.state.seconds}
 								onTimer={this.handleTimer}
 							/>
 						</div>
-						<div className="game-middle" id = "game-middle">
+						<div className="game-content" id = "game-middle">
 							<Pair
 								rightExpression={this.state.rightExpressions[this.state.currIndex]}
 								leftExpression={this.state.leftExpressions[this.state.currIndex]}
 							/>
 						</div>
-						<div className="game-bottom"></div>
+						<div className="game-footer">
+                            <div className = "left-arrow-key">LEFT</div>
+                            <div className = "up-arrow-key">EQUAL</div>
+                            <div className = "right-arrow-key">RIGHT</div>
+                        </div>
 					</div>
 				</div>
 			);
