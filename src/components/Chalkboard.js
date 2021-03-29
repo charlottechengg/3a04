@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Timer from './Timer.js';
 import Pair from './Pair.js';
+import { evaluate } from 'mathjs';
 import correctImg from './Assets/check.png';
 import wrongImg from './Assets/delete.png';
 
@@ -16,6 +17,8 @@ class Chalkboard extends Component {
 			currIndex: 0,
 			rightExpressions: [],
 			leftExpressions: [],
+            rightValues: [],
+			leftValues: [],
 			gameOver: false,
 			playerAccuracy: '0 / 0',
 		};
@@ -29,7 +32,8 @@ class Chalkboard extends Component {
 		this.keyHandling = this.keyHandling.bind(this);
 		this.updateNextPair = this.updateNextPair.bind(this);
 		this.generateRandomExpressions = this.generateRandomExpressions.bind(this);
-        this.displayCorrectness = this.displayCorrectness.bind(this);
+        this.expressionToString = this.expressionToString.bind(this)
+;        this.displayCorrectness = this.displayCorrectness.bind(this);
 	}
 
 	componentWillMount() {
@@ -48,15 +52,17 @@ class Chalkboard extends Component {
 	}
 
 	async resetGame() {
-		let exps = this.generateRandomExpressions();
+		let [exps,vals] = this.generateRandomExpressions();
 		this.setState({
 			rules: true,
 			numCorrect: 0,
 			minutes: 1,
 			seconds: 0,
 			currIndex: 0,
-			rightExpressions: exps[1],
 			leftExpressions: exps[0],
+            rightExpressions: exps[1],
+			leftValues: vals[0],
+            rightValues: vals[1],
 			gameOver: false,
 			playerAccuracy: '0 / 0',
 		});
@@ -88,15 +94,6 @@ class Chalkboard extends Component {
 	}
 
     displayCorrectness(correct){
-        // let text = correct ? "correct" : "Wrong";
-        // let node = document.createElement('div');
-		// node.append(document.createTextNode(text));
-		// node.setAttribute('class', 'game-middle');
-		// document.getElementById("game-middle").append(node);
-		// setTimeout(() => {
-		// 	document.getElementById("game-middle").removeChild(node);
-		// }, 300);
-
         let path = correct ? correctImg : wrongImg;
         let altText = correct ? "Correct" : "Wrong";
         let node = document.createElement('img');
@@ -113,27 +110,21 @@ class Chalkboard extends Component {
     }
 
 	isBigger(i) {
-		let leftVal = eval(this.state.leftExpressions[i]);
-		let rightVal = eval(this.state.rightExpressions[i]);
-		if (leftVal > rightVal) {
+		if (this.state.leftValues[i] > this.state.rightValues[i]) {
 			return true;
 		}
 		return false;
 	}
 
 	isSmaller(i) {
-		let leftVal = eval(this.state.leftExpressions[i]);
-		let rightVal = eval(this.state.rightExpressions[i]);
-		if (leftVal < rightVal) {
+		if (this.state.leftValues[i] < this.state.rightValues[i]) {
 			return true;
 		}
 		return false;
 	}
 
 	isEqual(i) {
-		let leftVal = eval(this.state.leftExpressions[i]);
-		let rightVal = eval(this.state.rightExpressions[i]);
-		if (leftVal === rightVal) {
+		if (this.state.leftValues[i] === this.state.rightValues[i]) {
 			return true;
 		}
 		return false;
@@ -142,36 +133,58 @@ class Chalkboard extends Component {
 	generateRandomExpressions() {
 		let rightExpressions = [];
 		let leftExpressions = [];
+        let rightValues = [];
+        let leftValues = [];
 		// increasing difficulties
         var j = 0;
 		for (var num = 1; num < 5; num++) {
 			for (var level = 0; level < 5; level++) {
 				for (var i = 0; i < 4; i++) {
                     j++;
-					rightExpressions.push(this.buildExpression(num, level));
-					leftExpressions.push(this.buildExpression(num, level));
+                    let leftExp = this.buildExpression(num, level);
+                    let rightExp = this.buildExpression(num, level);
+                    leftExpressions.push(this.expressionToString(leftExp));
+					rightExpressions.push(this.expressionToString(rightExp));
+                    leftValues.push(evaluate(leftExp));
+                    rightValues.push(evaluate(rightExp));
 				}
 			}
 		}
         console.log("j is " + j);
-		return [leftExpressions, rightExpressions];
+		return [[leftExpressions, rightExpressions], [leftValues,rightValues]];
 	}
 
 	buildExpression(num, level) {
 		if (num === 0) return '';
 		else if (num === 1) {
-			if (level === 0) return Math.floor(Math.random() * 10);
-			else if (level >= 1 && level < 5) return Math.floor(Math.random() * 20);
-			else if (level > 5 && level < 5) return Math.floor(Math.random() * 40);
+			if (level === 0) 
+                return Math.floor(Math.random() * 10);
+			else if (level >= 1 && level < 4) 
+                return Math.floor(Math.random() * 20);
+			else if (level >= 4 && level < 6) 
+                return Math.floor(Math.random() * 30) + 1;
+            else
+                return Math.floor(Math.random() * 50) + 1;
 		}
-		let numLeft = Math.floor(num / 2);
+		let numLeft = Math.ceil(num-1);
 		let leftSubTree = this.buildExpression(numLeft, level);
-		let numRight = Math.ceil(num / 2);
+		let numRight = Math.floor(1);
 		let rightSubTree = this.buildExpression(numRight, level);
-		const operators = '+-*/';
+		const operators = ['+', '-', '*', '/'];
 		let op = operators[Math.floor(Math.random() * level)];
-		return '(' + leftSubTree + ' ' + op + ' ' + rightSubTree + ')';
+        let exp = (num === 2) ? leftSubTree + ' ' + op + ' ' + rightSubTree : '(' + leftSubTree + ') ' + op + ' ' + rightSubTree;
+		return exp;
 	}
+
+    expressionToString(exp){
+        // exp.forEach((item, index) => {
+        //     if(item === '*') exp[index] = '\u00D7'; 
+        //     else if(item === '/') exp[index] = '\u00F7'; });
+        
+        let str = exp.toString().replace('*', '\u00D7').replace('/','\u00F7');
+        return str;
+
+    }
 
     handleTimer() {
         window.removeEventListener('keydown', this.keyHandling);
@@ -183,6 +196,7 @@ class Chalkboard extends Component {
 	}
 
 	isGameOver() {
+        console.log('\u00D7', '\u00F7');
 		if (this.state.currIndex >= 79) {
             window.removeEventListener('keydown', this.keyHandling);
 			let text = this.state.numCorrect + ' / ' + (this.state.currIndex+1) ;
