@@ -22,6 +22,7 @@ body {
     flex-flow: row wrap;
     justify-content:flex-end;
     width:100vw;
+    z-index: 10;
 }
 .timer-container{
 	background-color: #cacaf0d4;
@@ -43,7 +44,7 @@ body {
     height:80vh;
     width:100vw;
 	padding: 10px;
-    
+    z-index: 10;
 }
 
 .expression{
@@ -54,6 +55,13 @@ body {
 	font-weight: 100;
     margin:auto;
     width:40vw;
+    z-index: 0;
+}
+
+.correctness-image{
+    position:relative;
+    margin-top:-100px;
+    z-index: 20;
 }
 
 /* Style the footer */
@@ -65,8 +73,29 @@ body {
     display: flex;
     flex-direction: row;
     justify-content:center;
-    align-items: flex-end;
+    align-items:flex-end;
 	padding: 10px;
+    z-index: 0;
+}
+.arrow-keys{
+    display: inline;
+    position:relative;
+    border-radius: 1rem;
+	font-size: 4rem;
+}
+
+.icons{
+    margin: 0 0.125em;
+    padding: 0;
+    height:40px;
+    vertical-align: end;
+}
+.footer{
+    background-color: #b5c4f7ee;
+    margin: 0 0.125em;
+    height:fit-content;
+    width:fit-content;
+    vertical-align: baseline;
 }
 
 .window-container {
