@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import Auth from './components/auth';
 
 function App() {
+  let tmp = true;
+  if (tmp) return (<Auth />);
   return (
     <div className="App">
       <header className="App-header">
