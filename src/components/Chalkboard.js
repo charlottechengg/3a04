@@ -58,8 +58,8 @@ class Chalkboard extends Component {
 		this.setState({
 			rules: true,
 			numCorrect: 0,
-			minutes: 1,
-			seconds: 0,
+			minutes: 10,
+			seconds: 2,
 			currIndex: 0,
 			leftExpressions: exps[0],
 			rightExpressions: exps[1],
@@ -226,9 +226,7 @@ class Chalkboard extends Component {
 									<div>Game Over!</div>
 									<div>Accuracy: {this.state.playerAccuracy}</div>
 									<button
-										id="reset-button"
-										disabled={false}
-										className="playagain-button"
+										className="btn"
 										onClick={this.resetGame}
 									>
 										Play Again

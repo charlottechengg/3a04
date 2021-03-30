@@ -3,99 +3,121 @@
 }
 
 body {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Fredericka the Great', cursive;
 }
 
 /* Container for flexboxes */
 .game-container {
 	display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #acbefc;
-    height:100vh;
-    width:100vw;
+	background-image: url('./components/Assets/chalkboard.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #000000;
+	height: 100vh;
+	width: 100vw;
+	color: black;
 }
 
 /* Style the header */
 .game-header {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content:flex-end;
-    width:100vw;
-    z-index: 10;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+	width: 100vw;
+	z-index: 10;
 }
-.timer-container{
-	background-color: #cacaf0d4;
+.timer-container {
+	background-color: rgba(240, 255, 255, 0.596);
 	border-radius: 2rem;
-	padding:1rem;
+	padding: 1rem;
 	font-size: 2.3rem;
 	font-weight: 100;
-    margin:auto;
+	margin: auto;
 }
 /* Create three equal columns that sits next to each other */
-.pair-container{
+.pair-container {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    height:80vh;
-    width:100vw;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	position:relative;
+	height: 80vh;
+	width: 100vw;
 	padding: 10px;
-    z-index: 10;
+	z-index: 0;
 }
 
-.expression{
-    background-color: #cacaf0d4;
-    border-radius: 2rem;
-	padding:1rem;
+.expression {
+	background-color: rgba(240, 255, 255, 0.596);
+
+	border-radius: 2rem;
+	padding: 1rem;
 	font-size: 2.3rem;
 	font-weight: 100;
-    margin:auto;
-    width:40vw;
-    z-index: 0;
+	margin: auto;
+	width: 40vw;
 }
 
-.correctness-image{
-    position:relative;
-    margin-top:-100px;
-    z-index: 20;
+.correctness-image {
+	position: absolute;
+	margin-top: -100px;
+	z-index:2;
 }
 
 /* Style the footer */
 .game-footer {
-	background-color: #acbefc;
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-    align-items:flex-end;
+	display: flex;
+
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-end;
 	padding: 10px;
-    z-index: 0;
+	z-index: 0;
+	font-family: 'Fredericka the Great', cursive;
 }
-.arrow-keys{
-    display: inline;
-    position:relative;
-    border-radius: 1rem;
+.arrow-keys {
+	display: inline;
+	position: relative;
+	border-radius: 1rem;
 	font-size: 4rem;
 }
 
-.icons{
-    margin: 0 0.125em;
-    padding: 0;
-    height:40px;
-    vertical-align: end;
+.icons {
+	margin: 0 0.125em;
+	padding: 0;
+	height: 40px;
+	vertical-align: end;
 }
-.footer{
-    background-color: #b5c4f7ee;
-    margin: 0 0.125em;
-    height:fit-content;
-    width:fit-content;
-    vertical-align: baseline;
+.footer {
+	background-color: rgba(240, 255, 255, 0.596);
+	margin: 0 0.125em;
+	border-radius: 0.2em;
+	height: fit-content;
+	width: fit-content;
+	vertical-align: baseline;
+}
+
+.rules-instruction {
+	display: inline-block;
+	position: relative;
+	border-radius: 1rem;
+}
+
+.instruction {
+	background-color: rgba(219, 230, 230, 0.424);
+	margin: 0 0.125em;
+	border-radius: 0.2em;
+	display: inline-block;
 }
 
 .window-container {
@@ -103,24 +125,20 @@ body {
 	padding: 3rem;
 	max-height: 80%;
 	position: relative;
+	font-family: 'Fredericka the Great', cursive;
 }
 
-.gameover-container{
-	position:absolute;
-	top:30%;
-	text-align:center;
+.gameover-container {
+	position: absolute;
+	top: 30%;
+	text-align: center;
 }
 .window {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
 	width: 70vw;
-	background-color: #acbefc;
+	background-color: rgba(240, 255, 255, 0.596);
 	background-size: cover;
-	flex: initial;
-	flex-flow: row;
-	align-items: center;
-	justify-content: center;
-	position: relative;
 	height: 65rem;
 	width: 80rem;
 	-moz-perspective: 200rem;
@@ -129,16 +147,15 @@ body {
 	border-radius: 2rem;
 	font-size: 6rem;
 	font-weight: 100;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
-.gameover-container{
+.gameover-container {
 	justify-content: center;
 	position: relative;
-}
-
-/* On mouse-over, add a deeper shadow */
-.window:hover {
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .rules-heading {
@@ -146,8 +163,33 @@ body {
 	font-size: 6rem;
 }
 .rules-details {
-	list-style-type: none; /* Remove bullets */
 	font-size: 2.3rem;
+}
+
+.btn {
+	-webkit-appearance: none;
+	text-align: center;
+	font-family: 'Fredericka the Great', cursive;
+	width:max-content;
+	transition: all 0.2s;
+	text-transform: uppercase;
+	font-size: 4rem;
+	font-weight: 100;
+	cursor: pointer;
+	position: relative;
+	margin:20px;
+	display: inline-block;
+	background-color: #fdfdfd00;
+	padding: 0.3em 1.2em;
+	border-radius: 1em;
+	border-width: 0.35rem;
+	color: #000000;
+	text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+	text-align: center;
+}
+
+.btn:hover {
+	background-color:#FFFFFF;
 }
 
 .start-button {

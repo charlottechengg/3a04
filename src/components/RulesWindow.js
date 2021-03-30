@@ -1,7 +1,10 @@
 import React from 'react';
 import startImg from './Assets/next.png';
+import leftArrowImg from './Assets/left-arrow.png';
+import rightArrowImg from './Assets/right-arrow.png';
+import upArrowImg from './Assets/up-arrow.png';
 
-const RulesWindow = props => {
+const RulesWindow = (props) => {
 	return (
 		<div className="window-container">
 			<div className="window">
@@ -11,16 +14,31 @@ const RulesWindow = props => {
 					</h4>
 				</div>
 				<div className="rules-details">
-					<ul className="rules-details">
-						<li>Train your arithmetic skills by determing which one is greater</li>
-						<li>Use arrow on your keyboard to play. </li>
-						<li>Left</li>
-						<li>Right</li>
-						<li>Equal Up</li>
-					</ul>
+					<div className="rules-details">
+						<p>
+							Train your arithmetic skills by determing <br /> which one is greater
+						</p>
+						<p>Use arrow keys on your keyboard to play. </p>
+						<div className="rules-instruction">
+							<div className="instruction">
+								<div>LEFT</div>
+								<img className="arrow-keys left icons" src={leftArrowImg} />
+							</div>
+							<div className="instruction">
+								<div>EQUAL</div>
+								<img className="arrow-keys up icons" src={upArrowImg} />
+							</div>
+							<div className="instruction">
+								<div>RIGHT</div>
+								<img className="arrow-keys right icons" src={rightArrowImg} />
+							</div>
+						</div>
+					</div>
 				</div>
 				<div className="rules-button">
-					<img className="start-button" src = {startImg} style = {{height: "80px", cursor: "pointer"}} onClick={props.closeRules}/>
+					<button
+						className="btn"
+						onClick={props.closeRules}>Start</button>
 				</div>
 			</div>
 		</div>
