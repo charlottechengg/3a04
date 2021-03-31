@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import '../Chalkboard.css';
-import Timer from './Timer.js';
+import GameHeader from './GameHeader.js'
 import Pair from './Pair.js';
+import RulesWindow from './RulesWindow.js';
 import { evaluate } from 'mathjs';
 import correctImg from './Assets/check.png';
 import wrongImg from './Assets/delete.png';
-import RulesWindow from './RulesWindow.js';
 import leftArrowImg from './Assets/left-arrow.png';
 import rightArrowImg from './Assets/right-arrow.png';
 import upArrowImg from './Assets/up-arrow.png';
@@ -23,7 +23,9 @@ class Chalkboard extends Component {
 			rightValues: [],
 			leftValues: [],
 			gameOver: false,
-			playerAccuracy: '0 / 0',
+			levelCount: 0,
+			addSeconds: 0,
+			pause: false,
 		};
 		this.closeRules = this.closeRules.bind(this);
 		this.handleTimer = this.handleTimer.bind(this);
@@ -37,6 +39,10 @@ class Chalkboard extends Component {
 		this.generateRandomExpressions = this.generateRandomExpressions.bind(this);
 		this.expressionToString = this.expressionToString.bind(this);
 		this.displayCorrectness = this.displayCorrectness.bind(this);
+		this.updateNextLevel = this.updateNextLevel.bind(this);
+		this.updateTimer = this.updateTimer.bind(this);
+		this.handlePause = this.handlePause.bind(this);
+		this.onExit = this.onExit.bind(this);
 	}
 
 	componentWillMount() {
@@ -51,6 +57,7 @@ class Chalkboard extends Component {
 		this.setState({
 			rules: false,
 		});
+		window.addEventListener('keydown', this.keyHandling);
 	}
 
 	async resetGame() {
@@ -66,10 +73,10 @@ class Chalkboard extends Component {
 			leftValues: vals[0],
 			rightValues: vals[1],
 			gameOver: false,
-			playerAccuracy: '0 / 0',
+			levelCount: 0,
+			addSeconds: 0,
+			pause: false,
 		});
-
-		window.addEventListener('keydown', this.keyHandling);
 	}
 
 	keyHandling(e) {
@@ -83,14 +90,40 @@ class Chalkboard extends Component {
 	}
 
 	updateNextPair(correct) {
-		let increment = correct ? 1 : 0;
-		this.setState({
-			currIndex: this.state.currIndex + 1,
-			numCorrect: this.state.numCorrect + increment,
-		});
-
+		if (correct) {
+			this.setState({
+				numCorrect: this.state.numCorrect + 1,
+				currIndex: this.state.currIndex + 1,
+			});
+		} else {
+			this.setState({
+				currIndex: this.state.currIndex + 1,
+			});
+		}
+		this.updateNextLevel(correct);
 		this.displayCorrectness(correct);
 		return this.isGameOver();
+	}
+
+	updateNextLevel(correct) {
+		if (correct) {
+			let sec = this.state.levelCount === 4 ? 5 : 0;
+			this.setState(
+				{
+					levelCount: (this.state.levelCount + 1) % 5,
+					addSeconds: sec,
+				},
+				() => this.updateTimer()
+			);
+		} else {
+			this.setState({
+				levelCount: this.state.levelCount <= 0 ? 0 : this.state.levelCount - 1,
+			});
+		}
+	}
+
+	updateTimer() {
+		this.setState({ addSeconds: 0 });
 	}
 
 	displayCorrectness(correct) {
@@ -137,11 +170,9 @@ class Chalkboard extends Component {
 		let rightValues = [];
 		let leftValues = [];
 		// increasing difficulties
-		var j = 0;
 		for (var num = 1; num < 5; num++) {
 			for (var level = 0; level < 5; level++) {
-				for (var i = 0; i < 4; i++) {
-					j++;
+				for (var i = 0; i < 5; i++) {
 					let leftExp = this.buildExpression(num, level);
 					let rightExp = this.buildExpression(num, level);
 					leftExpressions.push(this.expressionToString(leftExp));
@@ -151,7 +182,6 @@ class Chalkboard extends Component {
 				}
 			}
 		}
-		console.log('j is ' + j);
 		return [
 			[leftExpressions, rightExpressions],
 			[leftValues, rightValues],
@@ -186,15 +216,18 @@ class Chalkboard extends Component {
 
 	handleTimer() {
 		window.removeEventListener('keydown', this.keyHandling);
-		let text = this.state.numCorrect + ' / ' + (this.state.currIndex + 1);
 		this.setState({
 			gameOver: true,
-			playerAccuracy: text,
+		});
+	}
+
+	handlePause() {
+		this.setState({
+			pause: !this.state.pause,
 		});
 	}
 
 	isGameOver() {
-		console.log('\u00D7', '\u00F7');
 		if (this.state.currIndex >= 79) {
 			window.removeEventListener('keydown', this.keyHandling);
 			let text = this.state.numCorrect + ' / ' + (this.state.currIndex + 1);
@@ -205,6 +238,10 @@ class Chalkboard extends Component {
 
 			return true;
 		}
+	}
+
+	onExit(){
+		// change to props.onExit later, direct back to menu or homepage
 	}
 
 	render() {
@@ -224,11 +261,13 @@ class Chalkboard extends Component {
 							<div className="window">
 								<div className="gameover-container">
 									<div>Game Over!</div>
-									<div>Accuracy: {this.state.playerAccuracy}</div>
-									<button
-										className="btn"
-										onClick={this.resetGame}
-									>
+									<div>
+										Accuracy{' '}
+										{this.state.currIndex &&
+											Math.round((this.state.numCorrect * 100) / this.state.currIndex)}
+										%
+									</div>
+									<button className="btn" onClick={this.resetGame}>
 										Play Again
 									</button>
 								</div>
@@ -241,13 +280,19 @@ class Chalkboard extends Component {
 			return (
 				<div>
 					<div className="game-container">
-						<div className="game-header">
-							<Timer
-								initialMinutes={this.state.minutes}
-								initialSeconds={this.state.seconds}
-								onTimer={this.handleTimer}
-							/>
-						</div>
+						<GameHeader
+							handlePause = {this.handlePause} 
+							onExit = {this.onExit} 
+							initialMinutes={this.state.minutes} 
+							initialSeconds={this.state.seconds} 
+							addSeconds={this.state.addSeconds} 
+							pause={this.state.pause} 
+							handleTimer={this.handleTimer} 
+							updateTimer={this.updateTimer} 
+							numCorrect = {this.state.numCorrect} 
+							currIndex = {this.state.currIndex} 
+							levelCount = {this.state.levelCount}
+						/>
 						<div className="game-content" id="game-middle">
 							<Pair
 								rightExpression={this.state.rightExpressions[this.state.currIndex]}

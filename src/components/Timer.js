@@ -6,6 +6,7 @@ const Timer = (props) => {
 	const [seconds, setSeconds] = useState(initialSeconds);
 
 	useEffect(() => {
+		if(!props.pause){
 		let myInterval = setInterval(() => {
 			if (seconds > 0) {
 				setSeconds(seconds - 1);
@@ -22,15 +23,19 @@ const Timer = (props) => {
 		return () => {
 			clearInterval(myInterval);
 		};
-	});
+	}
+	}, [props, minutes, seconds]);
 
     useEffect(() =>{
+		if(props.addSeconds>0){
+			setSeconds(seconds + props.addSeconds);
+			props.updateTimer()
+		}
         if(minutes === 0 && seconds === 0){
-            console.log(minutes, seconds);
-            console.log("times up")
             props.onTimer()
         }
-    });
+    }, [props, minutes, seconds]);
+
 
 	return (
 		<div className = "timer-container" >

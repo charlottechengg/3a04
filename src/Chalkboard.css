@@ -25,18 +25,28 @@ body {
 /* Style the header */
 .game-header {
 	display: flex;
-	flex-flow: row wrap;
-	justify-content: flex-end;
+	flex-flow: row;
+	justify-content: space-between;
 	width: 100vw;
 	z-index: 10;
 }
-.timer-container {
+.header-left{
+	display: flex;
+	flex-flow: row;
+	justify-content: flex-start;
+}
+
+.header-right{
+	display: flex;
+	flex-flow: row;
+	justify-content: flex-end;
+}
+.header {
 	background-color: rgba(240, 255, 255, 0.596);
 	border-radius: 2rem;
 	padding: 1rem;
 	font-size: 2.3rem;
-	font-weight: 100;
-	margin: auto;
+	margin: 5px;
 }
 /* Create three equal columns that sits next to each other */
 .pair-container {
@@ -185,12 +195,31 @@ body {
 	border-width: 0.35rem;
 	color: #000000;
 	text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
-	text-align: center;
 }
 
 .btn:hover {
 	background-color:#FFFFFF;
 }
+
+.header-btn{
+	-webkit-appearance: none;
+	transition: all 0.2s;
+	cursor: pointer;
+	color: #000000;
+	text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+	text-align: center;
+	background-color: rgba(240, 255, 255, 0.596);
+	border-radius: 2rem;
+	padding: 1rem;
+	font-family: 'Fredericka the Great', cursive;
+	font-size: 2.3rem;
+	margin: 5px;
+}
+
+.header-btn:hover {
+	background-color:#FFFFFF;
+}
+
 
 .start-button {
 	margin: 1rem;
