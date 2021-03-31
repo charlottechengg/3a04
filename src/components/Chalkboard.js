@@ -228,7 +228,7 @@ class Chalkboard extends Component {
 	}
 
 	isGameOver() {
-		if (this.state.currIndex >= 79) {
+		if (this.state.currIndex >= 99) {
 			window.removeEventListener('keydown', this.keyHandling);
 			let text = this.state.numCorrect + ' / ' + (this.state.currIndex + 1);
 			this.setState({
