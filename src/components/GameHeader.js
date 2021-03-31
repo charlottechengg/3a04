@@ -7,7 +7,7 @@ const GameHeader = props => {
 			<div className="game-header">
 				<div className="header-left">
 					<div>
-						<button className="header-btn" onClick={props.handlePause}>
+						<button className="header-btn" disabled = {props.gameOver}onClick={props.handlePause}>
 							{props.pause ? 'Resume' : 'Pause'}
 						</button>
 					</div>
@@ -33,7 +33,7 @@ const GameHeader = props => {
 						{props.currIndex && Math.round((props.numCorrect * 100) / props.currIndex)}%{' '}
 					</div>
 					<div className="header">
-						<div>{props.levelCount} / 5</div>
+						<div>Level {props.levelCount} / 5</div>
 					</div>
 				</div>
 			</div>

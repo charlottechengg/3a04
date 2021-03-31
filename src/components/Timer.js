@@ -24,7 +24,7 @@ const Timer = (props) => {
 			clearInterval(myInterval);
 		};
 	}
-	}, [props, minutes, seconds]);
+	}, [props.pause,minutes, seconds]);
 
     useEffect(() =>{
 		if(props.addSeconds>0){
@@ -34,7 +34,7 @@ const Timer = (props) => {
         if(minutes === 0 && seconds === 0){
             props.onTimer()
         }
-    }, [props, minutes, seconds]);
+    }, [props.addSeconds, minutes, seconds]);
 
 
 	return (

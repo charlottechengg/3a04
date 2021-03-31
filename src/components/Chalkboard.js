@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Chalkboard.css';
-import GameHeader from './GameHeader.js'
+import GameHeader from './GameHeader.js';
 import Pair from './Pair.js';
 import RulesWindow from './RulesWindow.js';
 import { evaluate } from 'mathjs';
@@ -65,8 +65,8 @@ class Chalkboard extends Component {
 		this.setState({
 			rules: true,
 			numCorrect: 0,
-			minutes: 10,
-			seconds: 2,
+			minutes: 1,
+			seconds: 0,
 			currIndex: 0,
 			leftExpressions: exps[0],
 			rightExpressions: exps[1],
@@ -234,13 +234,14 @@ class Chalkboard extends Component {
 			this.setState({
 				gameOver: true,
 				playerAccuracy: text,
+				pause: true,
 			});
 
 			return true;
 		}
 	}
 
-	onExit(){
+	onExit() {
 		// change to props.onExit later, direct back to menu or homepage
 	}
 
@@ -249,30 +250,7 @@ class Chalkboard extends Component {
 			return (
 				<div>
 					<div className="game-container">
-						<RulesWindow closeRules={this.closeRules} />
-					</div>
-				</div>
-			);
-		} else if (this.state.gameOver) {
-			return (
-				<div style={{ display: 'flex' }}>
-					<div className="game-container">
-						<div className="window-container">
-							<div className="window">
-								<div className="gameover-container">
-									<div>Game Over!</div>
-									<div>
-										Accuracy{' '}
-										{this.state.currIndex &&
-											Math.round((this.state.numCorrect * 100) / this.state.currIndex)}
-										%
-									</div>
-									<button className="btn" onClick={this.resetGame}>
-										Play Again
-									</button>
-								</div>
-							</div>
-						</div>
+						<RulesWindow pause={this.state.pause} closeRules={this.closeRules} />
 					</div>
 				</div>
 			);
@@ -281,23 +259,52 @@ class Chalkboard extends Component {
 				<div>
 					<div className="game-container">
 						<GameHeader
-							handlePause = {this.handlePause} 
-							onExit = {this.onExit} 
-							initialMinutes={this.state.minutes} 
-							initialSeconds={this.state.seconds} 
-							addSeconds={this.state.addSeconds} 
-							pause={this.state.pause} 
-							handleTimer={this.handleTimer} 
-							updateTimer={this.updateTimer} 
-							numCorrect = {this.state.numCorrect} 
-							currIndex = {this.state.currIndex} 
-							levelCount = {this.state.levelCount}
+							handlePause={this.handlePause}
+							onExit={this.onExit}
+							initialMinutes={this.state.minutes}
+							initialSeconds={this.state.seconds}
+							addSeconds={this.state.addSeconds}
+							pause={this.state.pause}
+							handleTimer={this.handleTimer}
+							updateTimer={this.updateTimer}
+							numCorrect={this.state.numCorrect}
+							currIndex={this.state.currIndex}
+							levelCount={this.state.levelCount}
+							gameOver= {this.state.gameOver}
 						/>
+
 						<div className="game-content" id="game-middle">
-							<Pair
-								rightExpression={this.state.rightExpressions[this.state.currIndex]}
-								leftExpression={this.state.leftExpressions[this.state.currIndex]}
-							/>
+							{this.state.gameOver ? (
+								<div style={{ display: 'flex' }}>
+									<div className="game-container">
+										<div className="window-container">
+											<div className="window">
+												<div className="gameover-container">
+													<div>Game Over!</div>
+													<div>
+														Accuracy{' '}
+														{this.state.currIndex &&
+															Math.round(
+																(this.state.numCorrect * 100) / this.state.currIndex
+															)}
+														%
+													</div>
+													<button className="btn" onClick={this.resetGame}>
+														Play Again
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							) : (!this.gameOver && !this.state.pause) ? (
+								<Pair
+									rightExpression={this.state.rightExpressions[this.state.currIndex]}
+									leftExpression={this.state.leftExpressions[this.state.currIndex]}
+								/>
+							) : (
+								<RulesWindow pause={this.state.pause} closeRules={this.handlePause} />
+							)}
 						</div>
 						<div className="game-footer">
 							<div className="footer">

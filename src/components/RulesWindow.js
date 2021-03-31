@@ -35,11 +35,13 @@ const RulesWindow = (props) => {
 						</div>
 					</div>
 				</div>
-				<div className="rules-button">
-					<button
-						className="btn"
-						onClick={props.closeRules}>Start</button>
-				</div>
+				{!props.pause && (
+					<div className="rules-button">
+						<button className="btn" onClick={props.closeRules}>
+							Start
+						</button>
+					</div>
+				)}
 			</div>
 		</div>
 	);
