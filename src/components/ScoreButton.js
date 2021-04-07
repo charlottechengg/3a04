@@ -19,7 +19,7 @@ class ScoreButton extends Component {
 
     regenerateText() {
         this.setState(state => ({
-            text: this.state.userName + ' #' + this.state.userID + ' on game '
+            text: this.state.userName + ' (#' + this.state.userID + ') Score on Game '
                 + this.state.gameID + ': ' + this.state.gameScore
         }));
     }
@@ -35,7 +35,7 @@ class ScoreButton extends Component {
         const {text} = this.state;
         return (
             <div>
-                <button onClick={this.handleClick}>Update Scores</button>
+                <button onClick={this.handleClick}>Update Score</button>
                 <p>{text}</p>
             </div>
         );
