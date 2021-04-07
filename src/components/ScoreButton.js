@@ -44,16 +44,24 @@ class ScoreButton extends Component {
     }
 
     updateScore1(score) {
+        let finalScore;
+        finalScore = score;
+        //insert calculations here
+        
         this.setState(state => ({
-            score1: score
+            score1: finalScore
         }));
 
         this.regenerateText();
     }
 
     updateScore2(score) {
+        let finalScore;
+        finalScore = score;
+        //insert calculations here
+
         this.setState(state => ({
-            score2: score
+            score2: finalScore
         }));
 
         this.regenerateText();
