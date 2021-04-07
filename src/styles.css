@@ -39,7 +39,34 @@ p strong {
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   gap: 10px;
 }
-
+h1 {
+  color: #f38507;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 48px;
+  margin: 0 0 50px;
+  text-align: center;
+  text-shadow: 1px 1px 2px #082b34;
+  display: inline-block;
+}
+h2 {
+  color: #f38507;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 48px;
+  margin: 0 0 50px;
+  text-align: center;
+  text-shadow: 1px 1px 2px #082b34;
+  display: inline-block;
+  padding-left: 21%;
+}
+.logoo {
+  position: fixed;
+  top: 10%;
+  display: inline-block;
+}
 .pokemon-card {
   height: 150px;
   width: 150px;

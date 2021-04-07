@@ -10,8 +10,8 @@ export default function Modal(props) {
           <div class="modal__details">
             <h1 class="modal__title">Congratulations!</h1>
             <p class="modal__description">
-              You have finished the game under 50s with score
-              <span className="Red">{score}</span>
+              You finished the game under 50s with score '
+              <text className="Red">{score}</text>
             </p>
           </div>
 

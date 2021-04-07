@@ -3,6 +3,7 @@ import "./styles.css";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import ReactStoreIndicator from "react-score-indicator";
 import Modal from "./modal";
+import logo from "./img/Poké_Ball_icon.png";
 import ReactCountdownClock from "react-countdown-clock";
 const url = "https://pokeres.bastionbot.org/images/pokemon";
 const useStyles = makeStyles(() =>
@@ -105,6 +106,12 @@ export default function App() {
   };
   return (
     <div className={classes.root}>
+      <div>
+        <h1>Match P </h1>
+        <img className="logoo" src={logo} alt="o" width="100" />
+        <h2 className="seocnd_h1">kemons</h2>
+      </div>
+
       <div className="Score">
         <ReactStoreIndicator
           value={score}
