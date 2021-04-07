@@ -1,13 +1,45 @@
 import React, {Component} from 'react';
 
-const ScoreButton = () => {
-    function scoreButtonClicked() {
-        alert('text');
+class ScoreButton extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            userID: 0,
+            userName: 'User',
+            gameID: -1,
+            gameScore: 0,
+            text: ''
+        };
+
+        this.regenerateText();
+
+        // This binding is necessary to make `this` work in the callback
+        this.handleClick = this.handleClick.bind(this);
     }
 
-	return (
-		<button onClick={scoreButtonClicked}>Click here!</button>
-	);
-};
+    regenerateText() {
+        this.setState(state => ({
+            text: this.state.userName + ' #' + this.state.userID + ' on game '
+                + this.state.gameID + ': ' + this.state.gameScore
+        }));
+    }
+
+    handleClick() {
+        this.regenerateText();
+        /*this.setState(state => ({
+            isToggleOn: !state.isToggleOn
+        }));*/
+    }
+
+    render() {
+        const {text} = this.state;
+        return (
+            <div>
+                <button onClick={this.handleClick}>Update Scores</button>
+                <p>{text}</p>
+            </div>
+        );
+    }
+}
 
 export default ScoreButton;
