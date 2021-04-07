@@ -27,10 +27,36 @@ class ScoreButton extends Component {
     }
 
     handleClick() {
-        this.regenerateText();
         this.setState(state => ({
             showScore: !state.showScore
         }));
+
+        this.regenerateText();
+    }
+
+    updateUser(newID, newName) {
+        this.setState(state => ({
+            userID: newID,
+            userName: newName
+        }));
+
+        this.regenerateText();
+    }
+
+    updateScore1(score) {
+        this.setState(state => ({
+            score1: score
+        }));
+
+        this.regenerateText();
+    }
+
+    updateScore2(score) {
+        this.setState(state => ({
+            score2: score
+        }));
+
+        this.regenerateText();
     }
 
     render() {
