@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+
+custom {
+  border: black;
+  border-style: dashed;
+}
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  line-height: 1;
+  font-family: "Patrick Hand", sans-serif;
+}
+
+p {
+  text-align: right;
+  font-size: 50px;
+  color: #999;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+p strong {
+  font-size: 14px;
+  color: #777;
+}
+
+.cards {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 10px;
+}
+
+.pokemon-card {
+  height: 150px;
+  width: 150px;
+  border-radius: 2px;
+  background: #000;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.pokemon-card.flipped .inner {
+  transform: rotateY(180deg);
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: 0.6s cubic-bezier(0.38, 0.02, 0.09, 1.66) all;
+}
+
+.pokemon-card .front,
+.pokemon-card .back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.pokemon-card .front {
+  background: #fff;
+  transform: rotateY(180deg);
+}
+
+.pokemon-card .back {
+  background: #51dce0;
+  color: #d6aeb5;
+  font-size: 100px;
+  transition: 0.3s ease all;
+}
+
+.pokemon-card .back:hover {
+  background: #dba8b1;
+  color: #fff;
+  transform: scale(1.02);
+}
+
+.Replay {
+  font-size: 1.8rem;
+
+  color: var(--light);
+  background: var(--background);
+  box-shadow: 0.4rem 0.4rem 2.4rem 0.2rem hsla(236, 50%, 50%, 0.3);
+  border-radius: 100rem;
+  padding: 1.4rem 3.2rem;
+  transition: 0.2s;
+}
+
+.Replay:hover,
+.Replay:focus {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 0 4.4rem 0.2rem hsla(236, 50%, 50%, 0.4);
+}
+.Score {
+  position: relative;
+  left: 30%;
+  height: 30px;
+  width: 100%;
+}
+
+.Time {
+  position: relative;
+  padding-bottom: 40%;
+  bottom: 90%;
+  height: 50px;
+  width: 100%;
+}
