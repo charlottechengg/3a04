@@ -1,0 +1,32 @@
+.img-mainpage{
+ background-image: url(./homepage_background.png);
+ width: 100%;
+ height: 700px;
+ background-size: 120% 100%;
+ padding-top: 10px;
+ 
+}
+
+.title-mainpage{
+ color:Orange;
+ font-size: 50px;
+ margin-bottom: 80px;
+ margin-top: 0px;
+}
+
+
+.button-mainpage{
+	margin-bottom: 50px;
+}
+
+.side-button-mainpage{
+	margin-left: 1200px;
+	margin-bottom: 10px;
+}
+
+/*
+.MuiButton-containedSizeLarge {
+    padding: 8px 22px;
+    font-size: 25px !important;
+}
+*/
