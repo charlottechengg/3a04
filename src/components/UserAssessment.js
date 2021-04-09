@@ -1,16 +1,18 @@
-import React from 'react'
-import FusionCharts, { render } from "fusioncharts";
+import React, { Component } from 'react'
+import FusionCharts from "fusioncharts";
 import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 // Resolves charts dependancy
 charts(FusionCharts);
 
 const dataSource = {
   chart: {
-    caption: "Name of mini game",
+    caption: "Minigame Score",
     yaxisname: "Score",
-    subcaption: "[Last 20 scores]",
+    subcaption: "[Last 20 games]",
     numbersuffix: "",
     rotatelabels: "1",
     setadaptiveymin: "1",
@@ -68,31 +70,27 @@ const dataSource = {
   ]
 };
 
-function handleSelect(e){
-    alert(e);
+class UserAssessment extends React.Component {
+  render() {
+    return (
+      <>
+      <DropdownButton id="dropdown-basic-button" title="Select Minigame">
+        <Dropdown.Item href="#/action-1">Minigame 1</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Minigame 2</Dropdown.Item>
+        <Dropdown.Item href="#/action-3">Minigame 3</Dropdown.Item>
+        <Dropdown.Item href="#/action-4">Minigame 4</Dropdown.Item>
+      </DropdownButton>
+
+      <ReactFusioncharts
+        type="line"
+        width="100%"
+        height="100%"
+        dataFormat="JSON"
+        dataSource={dataSource}
+      />
+      </>
+    );
+  }
 }
 
-export default function UserAssessment() {
-   
-    return (
-        <>
-            <div>
-                <select id="dropdown" onChange="handleSelect">
-                    <option value="MG1"> Minigame 1 </option>
-                    <option value="MG2"> Minigame 2 </option>
-                    <option value="MG3"> Minigame 3 </option>
-                    <option value="MG4"> Minigame 4 </option>
-                </select>
-            </div>
-            {/* <div>
-                <ReactFusioncharts
-                    type="line"
-                    width="100%"
-                    height="100%"
-                    dataFormat="JSON"
-                    dataSource={dataSource}
-                />
-            </div> */}
-        </>
-    )
-}
+export default UserAssessment;
