@@ -1,5 +1,5 @@
 .menu-container {
-	color: #001c2d;
+	color: white;
 	font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-style: normal;
 	font-weight: 300;
@@ -20,6 +20,7 @@
 }
 
 .cards {
+	color: #001c2d;
 	display:inline-flex;
 	flex-direction: row;
 	flex-wrap: wrap;

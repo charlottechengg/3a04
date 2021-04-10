@@ -1,8 +1,8 @@
 import React from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import './homepage.css';
 import MinigameMenu from './MinigameMenu';
+import Chalkboard from './Chalkboard.js';
 
 class Homepage extends React.Component {
 	constructor(props) {
