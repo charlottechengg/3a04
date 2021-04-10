@@ -1,13 +1,14 @@
 import React from 'react';
 import '../MinigameMenu.css';
 import chalkboardImg from './Assets/menu-minigame1.png';
+import lampImg from './Assets/lamp.png';
 
 const MinigameMenu = () => {
 	return (
 		<div className="menu-container">
-			<ul className="cards">
-				<li className="cards__item">
-					<div className="card">
+			<div className="cards">
+				<span className="cards__item">
+					<span className="card">
 						<img
 							className="card__image"
                             src = {chalkboardImg}
@@ -20,10 +21,10 @@ const MinigameMenu = () => {
 							</p>
 							<button className="card__btn">Start</button>
 						</div>
-					</div>
-				</li>
-				<li className="cards__item">
-					<div className="card">
+					</span>
+				</span>
+				<span className="cards__item">
+					<span className="card">
                         <img
 							className="card__image"
                             src = {chalkboardImg}
@@ -36,9 +37,25 @@ const MinigameMenu = () => {
 							</p>
 							<button className="card__btn">Start</button>
 						</div>
-					</div>
-				</li>
-			</ul>
+					</span>
+				</span>
+				<span className="cards__item">
+					<span className="card">
+                        <img
+							className="card__image"
+                            src = {lampImg}
+                            alt = "chalkboard"
+                            />
+                            <div className="card__content">
+							<div className="card__title">Coming soon.</div>
+							<p className="card__text">
+								
+							</p>
+							
+						</div>
+					</span>
+				</span>
+			</div>
 		</div>
 	);
 };
