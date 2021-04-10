@@ -1,105 +1,104 @@
 .menu-container {
-	color: white;
-	font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-style: normal;
-	font-weight: 300;
-	letter-spacing: 0;
-	padding: 1rem;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-moz-font-feature-settings: 'liga' on;
-	z-index:10;
-	position:relative;
-	background: url(./components/homepage_background.png) no-repeat center center fixed;
-	width: 100vw;
-	height: 100vh;
-	background-size: cover;
-	position: sticky;
-
+  color: white;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0;
+  padding: 1rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+  z-index: 10;
+  position: relative;
+  background: url(./components/homepage_background.png) no-repeat center center
+    fixed;
+  width: 100vw;
+  height: 100vw;
+  background-size: cover;
+  position: sticky;
 }
 
-.cards {
-	color: #001c2d;
-	display:inline-flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: stretch;
-	margin: 0;
-	padding: 0;
-	background-color: #0b2535;
-	padding: 3rem;
-	border-radius: 3rem;
+.cards_menu {
+  color: #001c2d;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  background-color: #0b2535;
+  padding: 3rem;
+  border-radius: 3rem;
 }
 
 .cards__item {
-	display:flex;
-	padding: 1rem;
+  display: flex;
+  padding: 1rem;
 }
 
 .card {
-	border-radius: 0.25rem;
-	box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-    max-width: 30rem;
-	background-color: rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-width: 30rem;
+  background-color: rgb(255, 255, 255);
 }
 
 .card__content {
-	display: flex;
-	flex: 1 1 auto;
-	flex-direction: column;
-	padding: 1rem;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 .card__title {
-
-	font-size: 2rem;
-	font-weight: 300;
-	text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .card__text {
-	flex: 1 1 auto;
-	font-size:1rem;
-	line-height: 1.5;
-	margin-bottom: 1rem;
+  flex: 1 1 auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
 .card__image {
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	border-top-left-radius: 0.25rem;
-	border-top-right-radius: 0.25rem;
-	filter: contrast(70%);
-	overflow: hidden;
-	position: relative;
-    height: auto;
-	max-width: 100%;
-	vertical-align: middle;
-	transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  filter: contrast(70%);
+  overflow: hidden;
+  position: relative;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
 }
 
 .card__btn {
-	-webkit-appearance: none;
-    font-size: 1.5rem;
-	text-align: center;
-	transition: all 0.2s;
-	text-transform: uppercase;
-	cursor: pointer;
-	position: relative;
-	margin:10px;
-    color:#464646;
-	background-color: #ffffffa4;
-	padding: 0.3em 1.2em;
-	text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  -webkit-appearance: none;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  margin: 10px;
+  color: #464646;
+  background-color: #ffffffa4;
+  padding: 0.3em 1.2em;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
 }
 
 .card__btn:hover {
-    background-color:#001c2d;;
-	color:#FFFFFF;
+  background-color: #001c2d;
+  color: #ffffff;
 }

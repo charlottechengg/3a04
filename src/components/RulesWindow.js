@@ -15,7 +15,7 @@ const RulesWindow = (props) => {
 				</div>
 				<div className="rules-details">
 					<div className="rules-details">
-						<p>
+						<p className="mathp">
 							Train your arithmetic skills by determing <br /> which one is greater
 						</p>
 						<p>Use arrow keys on your keyboard to play. </p>
