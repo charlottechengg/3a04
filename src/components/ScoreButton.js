@@ -6,8 +6,9 @@ class ScoreButton extends Component {
         this.state = {
             userID: 0,
             userName: 'User',
-            score1: 0,
-            score2: 0,
+            scoreChalk: 0,
+            scorePair: 0,
+            scoreQuiz: 0,
             text: 'dummy',
             showScore: false
         };
@@ -21,8 +22,10 @@ class ScoreButton extends Component {
 
     regenerateText() {
         this.setState(state => ({
-            text: state.userName + ' (#' + state.userID + '): Score on Game 1 is '
-                + state.score1 + ', Score on Game 2 is ' + state.score2
+            text: state.userName + ' (#' + state.userID + '): Chalkboard Score is '
+                + state.scoreChalk + ', Pair Score is '
+                + state.scorePair + ', Quiz Score is '
+                + state.scoreQuiz
         }));
     }
 
@@ -43,37 +46,46 @@ class ScoreButton extends Component {
         this.regenerateText();
     }
 
-    updateScore1(score) {
+    updateScoreChalk(props) {
         let finalScore;
-        finalScore = score;
-        //insert calculations here
+        finalScore = props.numCorrect / (props.currIndex + 1);
         
         this.setState(state => ({
-            score1: finalScore
+            scoreChalk: finalScore
         }));
 
         this.regenerateText();
     }
 
-    updateScore2(score) {
+    updateScorePair(props) {
         let finalScore;
-        finalScore = score;
-        //insert calculations here
+        finalScore = props.score + props.timeLeft * 2;
 
         this.setState(state => ({
-            score2: finalScore
+            scorePair: finalScore
+        }));
+
+        this.regenerateText();
+    }
+
+    updateScoreQuiz(props) {
+        let finalScore;
+        finalScore = Math.round((props.numCorrect * 100) / props.currIndex);
+        
+        this.setState(state => ({
+            scoreQuiz: finalScore
         }));
 
         this.regenerateText();
     }
 
     render() {
-        const {text} = this.state;
+        const {text, showScore} = this.state;
 
         return (
             <div>
                 <button onClick={this.handleClick}>Toggle Score Display</button>
-                { this.state.showScore &&
+                { showScore &&
                     <p>
                         {text}
                     </p>
