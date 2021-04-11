@@ -289,7 +289,7 @@ class Chalkboard extends Component {
 															)}
 														%
 													</div>
-													<button className="btn" onClick={this.resetGame}>
+													<button className="btn-chalk" onClick={this.resetGame}>
 														Play Again
 													</button>
 												</div>

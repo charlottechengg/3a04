@@ -1,239 +1,238 @@
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
-	font-family: 'Fredericka the Great', cursive;
+  font-family: "Roboto", sans-serif;
+  font-family: "Fredericka the Great", cursive;
 }
 
 /* Container for flexboxes */
 .game-container {
-	display: flex;
-	background-image: url('./components/Assets/chalkboard.jpg');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	flex-direction: column;
-	justify-content: space-between;
-	background-color: #000000;
-	height: 100vh;
-	width: 100vw;
-	color: black;
+  display: flex;
+  background-image: url("./components/Assets/chalkboard.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #000000;
+  height: 100vh;
+  width: 100vw;
+  color: black;
 }
 
 /* Style the header */
 .game-header {
-	display: flex;
-	flex-flow: row;
-	justify-content: space-between;
-	z-index: 10;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  z-index: 10;
 }
-.header-left{
-	display: flex;
-	flex-flow: row;
-	justify-content: flex-start;
+.header-left {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
 }
 
-.header-right{
-	display: flex;
-	flex-flow: row;
-	justify-content: flex-end;
+.header-right {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
 }
 .header {
-	background-color: rgba(240, 255, 255, 0.596);
-	border-radius: 2rem;
-	padding: 1rem;
-	font-size: 2.3rem;
-	margin: 5px;
+  background-color: rgba(240, 255, 255, 0.596);
+  border-radius: 2rem;
+  padding: 1rem;
+  font-size: 2.3rem;
+  margin: 5px;
 }
 /* Create three equal columns that sits next to each other */
 .pair-container {
-	-webkit-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	align-items: center;
-	position:relative;
-	height: 80vh;
-	width: 100vw;
-	padding: 10px;
-	z-index: 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 80vh;
+  width: 100vw;
+  padding: 10px;
+  z-index: 0;
 }
 
 .expression {
-	background-color: rgba(240, 255, 255, 0.596);
+  background-color: rgba(240, 255, 255, 0.596);
 
-	border-radius: 2rem;
-	padding: 1rem;
-	font-size: 2.3rem;
-	font-weight: 100;
-	margin: auto;
-	width: 40vw;
+  border-radius: 2rem;
+  padding: 1rem;
+  font-size: 2.3rem;
+  font-weight: 100;
+  margin: auto;
+  width: 40vw;
 }
 
 .correctness-image {
-	position: absolute;
-	margin-top: -100px;
-	z-index:2;
+  position: absolute;
+  margin-top: -100px;
+  z-index: 2;
 }
 
 /* Style the footer */
 .game-footer {
-	-webkit-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: flex;
 
-	flex-direction: row;
-	justify-content: center;
-	align-items: flex-end;
-	padding: 10px;
-	z-index: 0;
-	font-family: 'Fredericka the Great', cursive;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 10px;
+  z-index: 0;
+  font-family: "Fredericka the Great", cursive;
 }
 .arrow-keys {
-	display: inline;
-	position: relative;
-	border-radius: 1rem;
-	font-size: 4rem;
+  display: inline;
+  position: relative;
+  border-radius: 1rem;
+  font-size: 4rem;
 }
 
 .icons {
-	margin: 0 0.125em;
-	padding: 0;
-	height: 40px;
-	vertical-align: end;
+  margin: 0 0.125em;
+  padding: 0;
+  height: 40px;
+  vertical-align: end;
 }
 .footer {
-	background-color: rgba(240, 255, 255, 0.596);
-	margin: 0 0.125em;
-	border-radius: 0.2em;
-	height: fit-content;
-	width: fit-content;
-	vertical-align: baseline;
+  background-color: rgba(240, 255, 255, 0.596);
+  margin: 0 0.125em;
+  border-radius: 0.2em;
+  height: fit-content;
+  width: fit-content;
+  vertical-align: baseline;
 }
 
 .rules-instruction {
-	display: inline-block;
-	position: relative;
-	border-radius: 1rem;
+  display: inline-block;
+  position: relative;
+  border-radius: 1rem;
 }
 
 .instruction {
-	background-color: rgba(219, 230, 230, 0.424);
-	margin: 0 0.125em;
-	border-radius: 0.2em;
-	display: inline-block;
+  background-color: rgba(219, 230, 230, 0.424);
+  margin: 0 0.125em;
+  border-radius: 0.2em;
+  display: inline-block;
 }
 
 .window-container {
-	display: flex;
-	padding: 3rem;
-	max-height: 80%;
-	position: relative;
-	font-family: 'Fredericka the Great', cursive;
+  display: flex;
+  padding: 3rem;
+  max-height: 80%;
+  position: relative;
+  font-family: "Fredericka the Great", cursive;
 }
 
 .gameover-container {
-	position: absolute;
-	top: 30%;
-	text-align: center;
+  position: absolute;
+  top: 30%;
+  text-align: center;
 }
 .window {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	transition: 0.3s;
-	width: 70vw;
-	background-color: rgba(240, 255, 255, 0.596);
-	background-size: cover;
-	height: 65rem;
-	width: 80rem;
-	-moz-perspective: 200rem;
-	perspective: 200rem;
-	margin: 2rem;
-	border-radius: 2rem;
-	font-size: 6rem;
-	font-weight: 100;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 70vw;
+  background-color: rgba(240, 255, 255, 0.596);
+  background-size: cover;
+  height: 65rem;
+  width: 80rem;
+  -moz-perspective: 200rem;
+  perspective: 200rem;
+  margin: 2rem;
+  border-radius: 2rem;
+  font-size: 6rem;
+  font-weight: 100;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .gameover-container {
-	justify-content: center;
-	position: relative;
+  justify-content: center;
+  position: relative;
 }
 
 .rules-heading {
-	text-transform: uppercase;
-	font-size: 6rem;
+  text-transform: uppercase;
+  font-size: 6rem;
 }
 .rules-details {
-	font-size: 2.3rem;
+  font-size: 2.3rem;
 }
 
-.btn {
-	-webkit-appearance: none;
-	text-align: center;
-	font-family: 'Fredericka the Great', cursive;
-	width:max-content;
-	transition: all 0.2s;
-	text-transform: uppercase;
-	font-size: 4rem;
-	font-weight: 100;
-	cursor: pointer;
-	position: relative;
-	margin:20px;
-	display: inline-block;
-	background-color: #fdfdfd00;
-	padding: 0.3em 1.2em;
-	border-radius: 1em;
-	border-width: 0.35rem;
-	color: #000000;
-	text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+.btn-chalk {
+  -webkit-appearance: none;
+  text-align: center;
+  font-family: "Fredericka the Great", cursive;
+  width: max-content;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  font-size: 4rem;
+  font-weight: 100;
+  cursor: pointer;
+  position: relative;
+  margin: 20px;
+  display: inline-block;
+  background-color: #fdfdfd00;
+  padding: 0.3em 1.2em;
+  border-radius: 1em;
+  border-width: 0.35rem;
+  color: #000000;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
 }
 
-.btn:hover {
-	background-color:#FFFFFF;
+.btn-chalk:hover {
+  background-color: #ffffff;
 }
 
-.header-btn{
-	-webkit-appearance: none;
-	transition: all 0.2s;
-	cursor: pointer;
-	color: #000000;
-	text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
-	text-align: center;
-	background-color: rgba(240, 255, 255, 0.596);
-	border-radius: 2rem;
-	padding: 1rem;
-	font-family: 'Fredericka the Great', cursive;
-	font-size: 2.3rem;
-	margin: 5px;
+.header-btn-chalk {
+  -webkit-appearance: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  color: #000000;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-align: center;
+  background-color: rgba(240, 255, 255, 0.596);
+  border-radius: 2rem;
+  padding: 1rem;
+  font-family: "Fredericka the Great", cursive;
+  font-size: 2.3rem;
+  margin: 5px;
 }
 
-.header-btn:hover {
-	background-color:#FFFFFF;
+.header-btn-chalk:hover {
+  background-color: #ffffff;
 }
-
 
 .start-button {
-	margin: 1rem;
-	border-radius: 3rem;
-	max-width: fit-content;
-	cursor: pointer;
+  margin: 1rem;
+  border-radius: 3rem;
+  max-width: fit-content;
+  cursor: pointer;
 }
 .start-button:hover {
-	box-shadow: 5px 5px 5px 5px rgb(189, 208, 227);
+  box-shadow: 5px 5px 5px 5px rgb(189, 208, 227);
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
-	.pair-container {
-		-webkit-flex-direction: column;
-		flex-direction: column;
-	}
+  .pair-container {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
 }

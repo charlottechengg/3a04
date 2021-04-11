@@ -16,7 +16,7 @@ const useStyles = makeStyles(() =>
       background: "#d0e0e6",
       margin: "100px",
     },
-    btn: {
+    btn_display: {
       textAlign: "center",
       marginTop: "6rem",
       display: "inline-block",
