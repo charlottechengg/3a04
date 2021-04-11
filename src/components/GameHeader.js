@@ -12,7 +12,7 @@ const GameHeader = (props) => {
         <div className="header-left">
           <div>
             <button
-              className="header-btn"
+              className="header-btn-chalk"
               disabled={props.gameOver}
               onClick={props.handlePause}
             >
@@ -20,7 +20,7 @@ const GameHeader = (props) => {
             </button>
           </div>
           <div>
-            <button className="header-btn" onClick={() => handleBack("")}>
+            <button className="header-btn-chalk" onClick={() => handleBack("")}>
               Exit
             </button>
           </div>

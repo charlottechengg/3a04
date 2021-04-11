@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import "./homepage.css";
 import MinigameMenu from "./MinigameMenu";
-import FAQ from "./FAQ"
-import UserAssessment from "./UserAssessment"
+import FAQ from "./FAQ";
+import UserAssessment from "./UserAssessment";
 import Chalkboard from "./Chalkboard.js";
 
 class Homepage extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      showFAQ : false,
-      showScores : false,
-      showHomepage : true
+      showFAQ: false,
+      showScores: false,
+      showHomepage: true,
     };
     this.hideComponent = this.hideComponent.bind(this);
   }
@@ -21,28 +20,28 @@ class Homepage extends React.Component {
   hideComponent(name) {
     switch (name) {
       case "showFAQ":
-        this.setState({ 
+        this.setState({
           showFAQ: true,
-          showScores : false,
-          showHomepage : false 
+          showScores: false,
+          showHomepage: false,
         });
         break;
       case "showScores":
-        this.setState({ 
+        this.setState({
           showFAQ: false,
-          showScores : true,
-          showHomepage : false 
+          showScores: true,
+          showHomepage: false,
         });
         break;
       case "showHomepage":
-        this.setState({ 
-          showFAQ : false,
-          showScores : false,
-          showHomepage: true 
+        this.setState({
+          showFAQ: false,
+          showScores: false,
+          showHomepage: true,
         });
         break;
       default:
-        break;  
+        break;
     }
   }
 
@@ -51,127 +50,115 @@ class Homepage extends React.Component {
   }
 
   render() {
-
-    const{ showFAQ, showScores, showHomepage } = this.state;
+    const { showFAQ, showScores, showHomepage } = this.state;
 
     return (
       <div className="homepage-container">
         <div className="img-mainpage">
+          {showHomepage && (
+            <div>
+              <div className="side-button-mainpage">
+                <Button
+                  style={{ marginRight: "10px" }}
+                  size="small"
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => this.message()}
+                >
+                  {" "}
+                  sign in{" "}
+                </Button>
+                <Button
+                  size="small"
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => this.message()}
+                >
+                  {" "}
+                  log in{" "}
+                </Button>
+              </div>
+              <h1 className="title-mainpage"> WISER </h1>
 
-        {showHomepage && (
-          <div>
-            <div className="side-button-mainpage">
-              <Button
-                style={{ marginRight: "10px" }}
-                size="small"
-                variant="contained"
-                color="secondary"
-                onClick={() => this.message()}
-              >
-                {" "}
-                sign in{" "}
-              </Button>
-              <Button
-                size="small"
-                variant="contained"
-                color="secondary"
-                onClick={() => this.message()}
-              >
-                {" "}
-                log in{" "}
-              </Button>
-            </div>
-            <h1 className="title-mainpage"> WISER </h1>
-            {/* <div className="button-mainpage">
-              <Button
-                size="large"
-                variant="contained"
-                color="primary"
-                onClick={() => this.message()}
-              >
-                {" "}
-                select{" "}
-              </Button>
-            </div> */}
-
-            <div className="button-mainpage">
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => this.hideComponent("showScores")}
-                style={{
-                  maxWidth: "160x",
-                  maxHeight: "80px",
-                  minWidth: "160px",
-                  minHeight: "80px",
-                }}
-              >
-                {" "}
-                Scores{" "}
-              </Button>
-            </div>
-            <div className="button-mainpage">
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => this.hideComponent("showFAQ")}
-                style={{
-                  maxWidth: "160x",
-                  maxHeight: "80px",
-                  minWidth: "160px",
-                  minHeight: "80px",
-                }}
-              >
-                {" "}
-                FAQ
-                {" "}
-              </Button>
-            </div>
-
-            <MinigameMenu />
-          </div>          
-          )}
-          
-          {showFAQ && (
-            <div className="faq-container">
-              <Button variant="contained"
+              <div className="button-mainpage">
+                <Button
+                  variant="contained"
                   color="primary"
-                  onClick={() => this.hideComponent("showHomepage")}
+                  onClick={() => this.hideComponent("showScores")}
                   style={{
                     maxWidth: "160x",
                     maxHeight: "80px",
                     minWidth: "160px",
                     minHeight: "80px",
-                  }}> 
-              {""}
-                Back
-              {""} 
-              </Button>
-              <FAQ />
+                  }}
+                >
+                  {" "}
+                  Scores{" "}
+                </Button>
+              </div>
+              <div className="button-mainpage">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => this.hideComponent("showFAQ")}
+                  style={{
+                    maxWidth: "160x",
+                    maxHeight: "80px",
+                    minWidth: "160px",
+                    minHeight: "80px",
+                  }}
+                >
+                  {" "}
+                  FAQ{" "}
+                </Button>
+              </div>
+
+              <MinigameMenu />
             </div>
           )}
+        </div>
 
-          {showScores && (
-          <div>
-            <Button 
-                variant="contained"
-                color="primary"
-                onClick={() => this.hideComponent("showHomepage")}
-                style={{
-                  maxWidth: "160x",
-                  maxHeight: "80px",
-                  minWidth: "160px",
-                  minHeight: "80px",
-                }}> 
-            {""}
+        {showScores && (
+          <div className="scorespage">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => this.hideComponent("showHomepage")}
+              style={{
+                maxWidth: "160x",
+                maxHeight: "80px",
+                minWidth: "160px",
+                minHeight: "80px",
+              }}
+            >
+              {""}
               Back
-            {""} 
+              {""}
             </Button>
-          
+
             <UserAssessment />
           </div>
-          )}
-        </div>
+        )}
+        {showFAQ && (
+          <div className="faq-container">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => this.hideComponent("showHomepage")}
+              style={{
+                maxWidth: "160x",
+                maxHeight: "80px",
+                minWidth: "160px",
+                minHeight: "80px",
+              }}
+            >
+              {""}
+              Back
+              {""}
+            </Button>
+            <FAQ />
+          </div>
+        )}
       </div>
     );
   }
