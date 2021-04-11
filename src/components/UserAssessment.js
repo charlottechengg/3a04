@@ -75,10 +75,8 @@ class UserAssessment extends React.Component {
     return (
       <>
       <DropdownButton id="dropdown-basic-button" title="Select Minigame">
-        <Dropdown.Item href="#/action-1">Minigame 1</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Minigame 2</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Minigame 3</Dropdown.Item>
-        <Dropdown.Item href="#/action-4">Minigame 4</Dropdown.Item>
+        <Dropdown.Item href="#/action-1">Chalkboard Challenge</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Match Pokemons</Dropdown.Item>
       </DropdownButton>
 
       <ReactFusioncharts

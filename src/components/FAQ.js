@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
+import './FAQ.css'
 
 export class FAQ extends Component {
     render() {
         return (
             <>
-                <div>
+                <div className="faq-container">
                     <Accordion>
                         <Card>
                             <Accordion.Toggle as={Card.Header} eventKey="0">
