@@ -34,3 +34,9 @@
 .HomeBut {
   size: 150%;
 }
+
+.scorespage {
+  width: 70vw;
+  height: 100vh;
+  margin: auto;
+}

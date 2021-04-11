@@ -82,7 +82,7 @@ class UserAssessment extends React.Component {
       <ReactFusioncharts
         type="line"
         width="100%"
-        height="100%"
+        height="70%"
         dataFormat="JSON"
         dataSource={dataSource}
       />
