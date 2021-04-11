@@ -27,7 +27,6 @@ body {
 	display: flex;
 	flex-flow: row;
 	justify-content: space-between;
-	width: 100vw;
 	z-index: 10;
 }
 .header-left{

@@ -307,6 +307,7 @@ class Chalkboard extends Component {
 							)}
 						</div>
 						<div className="game-footer">
+							<div>Author: Manyi Cheng</div>
 							<div className="footer">
 								<div className="arrow-keys left">LEFT</div>
 								<img className="arrow-keys left icons" src={leftArrowImg} />
