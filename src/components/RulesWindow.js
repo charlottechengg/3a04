@@ -37,7 +37,7 @@ const RulesWindow = (props) => {
 				</div>
 				{!props.pause && (
 					<div className="rules-button">
-						<button className="btn" onClick={props.closeRules}>
+						<button className="btn-chalk" onClick={props.closeRules}>
 							Start
 						</button>
 					</div>
