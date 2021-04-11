@@ -23,7 +23,7 @@ const MinigameMenu = () => {
             <div className="card__content">
               <div className="card__title">Chalkboard Challenge</div>
               <p className="card__text">
-                Author: Manyi Cheng. <br/>
+                Author: Manyi Cheng. <br />
                 Challenge your calculation and estimation with our best math
                 game. Chalkboard Challenge improves the quantitative reasoning
                 and problem-solving skills.{" "}
@@ -63,12 +63,11 @@ const MinigameMenu = () => {
             <div className="card__content">
               <div className="card__title">Wuhoo!</div>
               <p className="card__text">
-                Challenge your knowledge with the most popular quiz game. Pick the correct option challenges your understanding of computer science.
+                Challenge your knowledge with the most popular quiz game. Pick
+                the correct option challenges your understanding of computer
+                science.
               </p>
-              <button
-                className="card__btn"
-                onClick={() => handleMath("Memory")}
-              >
+              <button className="card__btn" onClick={() => handleMath("wuhoo")}>
                 Start
               </button>
             </div>
