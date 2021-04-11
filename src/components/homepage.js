@@ -69,7 +69,8 @@ class Homepage extends React.Component {
                 onClick={() => this.message()}
               >
                 {" "}
-                sign in{" "}
+                sign in
+                {" "}
               </Button>
               <Button
                 size="small"
@@ -78,7 +79,8 @@ class Homepage extends React.Component {
                 onClick={() => this.message()}
               >
                 {" "}
-                log in{" "}
+                log in
+                {" "}
               </Button>
             </div>
             <h1 className="title-mainpage"> WISER </h1>
@@ -133,16 +135,13 @@ class Homepage extends React.Component {
           )}
           
           {showFAQ && (
-            <div className="faq-container">
-              <Button variant="contained"
+            <div>
+              <Button
+                  className="back-button" 
+                  variant="contained"
                   color="primary"
                   onClick={() => this.hideComponent("showHomepage")}
-                  style={{
-                    maxWidth: "160x",
-                    maxHeight: "80px",
-                    minWidth: "160px",
-                    minHeight: "80px",
-                  }}> 
+                  > 
               {""}
                 Back
               {""} 
@@ -152,24 +151,19 @@ class Homepage extends React.Component {
           )}
 
           {showScores && (
-          <div>
-            <Button 
-                variant="contained"
-                color="primary"
-                onClick={() => this.hideComponent("showHomepage")}
-                style={{
-                  maxWidth: "160x",
-                  maxHeight: "80px",
-                  minWidth: "160px",
-                  minHeight: "80px",
-                }}> 
-            {""}
-              Back
-            {""} 
-            </Button>
-          
-            <UserAssessment />
-          </div>
+            <div>
+              <Button
+                  className="back-button" 
+                  variant="contained"
+                  color="primary"
+                  onClick={() => this.hideComponent("showHomepage")}
+                  > 
+              {""}
+                Back
+              {""} 
+              </Button>
+              <UserAssessment />
+            </div>
           )}
         </div>
       </div>
