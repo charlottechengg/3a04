@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import Auth from './components/auth';
-import ScoreButton from './components/ScoreButton.js';
 
 function App() {
   // let tmp = true;
@@ -9,7 +8,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ScoreButton />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
