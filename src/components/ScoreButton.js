@@ -59,13 +59,15 @@ class ScoreButton extends Component {
 
     updateScorePair(props) {
         let finalScore;
-        finalScore = props.score + props.timeLeft * 2;
+        finalScore = props.scores + props.timeLeft * 2;
 
         this.setState(state => ({
             scorePair: finalScore
         }));
 
         this.regenerateText();
+
+        return finalScore;
     }
 
     updateScoreQuiz(props) {
@@ -95,4 +97,6 @@ class ScoreButton extends Component {
     }
 }
 
-export default ScoreButton;
+const scoreManager = new ScoreButton();
+
+export default scoreManager;

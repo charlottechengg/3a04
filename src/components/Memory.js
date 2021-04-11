@@ -6,6 +6,8 @@ import ReactStoreIndicator from "react-score-indicator";
 import Modal from "./modal";
 import logo from "./img/Poké_Ball_icon.png";
 import ReactCountdownClock from "react-countdown-clock";
+import scoreManager from './ScoreButton.js';
+
 const url = "https://pokeres.bastionbot.org/images/pokemon";
 const useStyles = makeStyles(() =>
   createStyles({
@@ -83,7 +85,11 @@ export default function Memory() {
       setMatched([...matched, firstMatched.id]);
       let scores = score + 20;
       setScore(scores);
-      if (scores === 120) setPopUp(true);
+      if (scores >= 120) {
+        let timeLeft = seconds; //THIS IS ALWAYS READING 50? NEEDS TO READ THE ACTUAL TIME LEFT
+        setScore(scoreManager.updateScorePair({scores, timeLeft}));
+        setPopUp(true);
+      }
     }
 
     if (openedCard.length === 2) setTimeout(() => setOpenedCard([]), 500);
