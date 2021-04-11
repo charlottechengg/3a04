@@ -1,87 +1,73 @@
 import React, {Component} from 'react';
 
 class ScoreButton extends Component {
+    state = {
+        userID: 0,
+        userName: 'User',
+        scoreChalk: 0,
+        scorePair: 0,
+        scoreQuiz: 0,
+        text: 'dummy',
+        showScore: false
+    };
+
     constructor(props) {
         super(props);
-        this.state = {
-            userID: 0,
-            userName: 'User',
-            scoreChalk: 0,
-            scorePair: 0,
-            scoreQuiz: 0,
-            text: 'dummy',
-            showScore: false
-        };
 
         // This binding is necessary to make `this` work in the callback
-        this.regenerateText = this.regenerateText.bind(this);
+        /*this.regenerateText = this.regenerateText.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.updateUser = this.updateUser.bind(this);
+        this.updateScoreChalk = this.updateScoreChalk.bind(this);
+        this.updateScorePair = this.updateScorePair.bind(this);
+        this.updateScoreQuiz = this.updateScoreQuiz.bind(this);
+        this.getText = this.getText.bind(this);*/
 
         this.regenerateText();
     }
 
     regenerateText() {
-        this.setState(state => ({
+        /*this.setState(state => ({
             text: state.userName + ' (#' + state.userID + '): Chalkboard Score is '
                 + state.scoreChalk + ', Pair Score is '
                 + state.scorePair + ', Quiz Score is '
                 + state.scoreQuiz
-        }));
+        }));*/
+
+        this.state.text = this.state.userName + ' (#' + this.state.userID + '): Chalkboard Score is '
+            + this.state.scoreChalk + ', Pair Score is '
+            + this.state.scorePair + ', Quiz Score is '
+            + this.state.scoreQuiz;
     }
 
     handleClick() {
-        this.setState(state => ({
-            showScore: !state.showScore
-        }));
-
-        this.regenerateText();
+        this.state.showScore = !this.state.showScore;
     }
 
-    updateUser(newID, newName) {
-        this.setState(state => ({
-            userID: newID,
-            userName: newName
-        }));
-
-        this.regenerateText();
+    updateUser(props) {
+        this.state.userID = props.newID;
+        this.state.userName = props.newName;
     }
 
     updateScoreChalk(props) {
-        let finalScore;
-        finalScore = props.numCorrect / (props.currIndex + 1);
-        
-        this.setState(state => ({
-            scoreChalk: finalScore
-        }));
-
-        this.regenerateText();
+        this.state.scoreChalk = props.numCorrect / (props.currIndex + 1);
     }
 
     updateScorePair(props) {
-        let finalScore;
-        finalScore = props.scores + props.timeLeft * 2;
-
-        this.setState(state => ({
-            scorePair: finalScore
-        }));
-
-        this.regenerateText();
-
-        return finalScore;
+        this.state.scorePair = props.scores + props.timeLeft * 2;
+        return this.state.scorePair;
     }
 
     updateScoreQuiz(props) {
-        let finalScore;
-        finalScore = Math.round((props.numCorrect * 100) / props.currIndex);
-        
-        this.setState(state => ({
-            scoreQuiz: finalScore
-        }));
-
-        this.regenerateText();
+        this.state.scoreQuiz = Math.round((props.numCorrect * 100) / props.currIndex);
     }
 
-    render() {
+    getText() {
+        this.regenerateText();
+        return this.state.text;
+    }
+
+    /*render() {
         const {text, showScore} = this.state;
 
         return (
@@ -94,7 +80,7 @@ class ScoreButton extends Component {
                 }
             </div>
         );
-    }
+    }*/
 }
 
 const scoreManager = new ScoreButton();

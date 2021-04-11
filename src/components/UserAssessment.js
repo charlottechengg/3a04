@@ -4,6 +4,7 @@ import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
+import scoreManager from './ScoreButton.js';
 
 // Resolves charts dependancy
 charts(FusionCharts);
@@ -72,8 +73,13 @@ const dataSource = {
 
 class UserAssessment extends React.Component {
   render() {
+    let output;
+    output = scoreManager.getText();
+
     return (
       <div>
+        <p>{output}</p>
+        <br/>
         <DropdownButton id="dropdown-basic-button" title="Select Minigame">
           <Dropdown.Item href="#/action-1">Chalkboard Challenge</Dropdown.Item>
           <Dropdown.Item href="#/action-2">Match Pokemons</Dropdown.Item>
