@@ -4,9 +4,8 @@ import Chalkboard from "./components/Chalkboard.js";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import Memory from "./components/Memory";
 import Quiz from "./components/Quiz";
+
 function App() {
-  // let tmp = true;
-  // if (tmp) return (<Auth />);
   return (
     <Router>
       <div className="App">
