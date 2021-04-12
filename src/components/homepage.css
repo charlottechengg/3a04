@@ -34,9 +34,8 @@
 .back-button {
   max-width: "100px";
   max-height: "100px";
-  display: flex;
-  flex-flow: row;
-  justify-content: left;
+  position: absolute;
+  left: 0;
 }
 
 .HomeBut {

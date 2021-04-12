@@ -20,51 +20,51 @@ const pokemonData = {
   },
   data: [
     {
-      label: "2005",
+      label: "2021-04-01",
       value: "89.45"
     },
     {
-      label: "2006",
+      label: "2021-04-02",
       value: "89.87"
     },
     {
-      label: "2007",
+      label: "2021-04-12",
       value: "89.64"
     },
     {
-      label: "2008",
+      label: "2021-04-10",
       value: "90.13"
     },
     {
-      label: "2009",
+      label: "2021-04-05",
       value: "90.67"
     },
     {
-      label: "2010",
+      label: "2021-04-06",
       value: "90.54"
     },
     {
-      label: "2011",
+      label: "2021-04-07",
       value: "90.75"
     },
     {
-      label: "2012",
+      label: "2021-04-08",
       value: "90.8"
     },
     {
-      label: "2013",
+      label: "2021-04-09",
       value: "91.16"
     },
     {
-      label: "2014",
+      label: "2021-04-11",
       value: "91.37"
     },
     {
-      label: "2015",
+      label: "2021-04-12",
       value: "91.66"
     },
     {
-      label: "2016",
+      label: "2021-04-10",
       value: "91.8"
     }
   ]
@@ -82,51 +82,51 @@ const chalkboardData = {
   },
   data: [
     {
-      label: "2005",
+      label: "2021-04-01",
       value: "89.45"
     },
     {
-      label: "2006",
+      label: "2021-04-02",
       value: "89.87"
     },
     {
-      label: "2007",
+      label: "2021-04-12",
       value: "89.64"
     },
     {
-      label: "2008",
+      label: "2021-04-10",
       value: "90.13"
     },
     {
-      label: "2009",
+      label: "2021-04-05",
       value: "90.67"
     },
     {
-      label: "2010",
+      label: "2021-04-06",
       value: "90.54"
     },
     {
-      label: "2011",
+      label: "2021-04-07",
       value: "90.75"
     },
     {
-      label: "2012",
+      label: "2021-04-08",
       value: "90.8"
     },
     {
-      label: "2013",
+      label: "2021-04-09",
       value: "91.16"
     },
     {
-      label: "2014",
+      label: "2021-04-11",
       value: "91.37"
     },
     {
-      label: "2015",
+      label: "2021-04-12",
       value: "91.66"
     },
     {
-      label: "2016",
+      label: "2021-04-10",
       value: "91.8"
     }
   ]
