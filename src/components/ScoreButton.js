@@ -34,7 +34,7 @@ class ScoreButton extends Component {
                 + state.scoreQuiz
         }));*/
 
-        this.state.text = this.state.userName + ' (#' + this.state.userID + '): Chalkboard Score is '
+        this.state.text = this.state.userName + ': Chalkboard Score is ' //' (#' + this.state.userID + '): Chalkboard Score is '
             + this.state.scoreChalk + ', Pair Score is '
             + this.state.scorePair + ', Quiz Score is '
             + this.state.scoreQuiz;
@@ -49,8 +49,9 @@ class ScoreButton extends Component {
         this.state.userName = props.newName;
     }
 
-    updateScoreChalk(props) {
-        this.state.scoreChalk = props.numCorrect / (props.currIndex + 1);
+    updateScoreChalk(numCorrect, currIndex) {
+        this.state.scoreChalk = Math.round(numCorrect * 100 / currIndex);
+        return this.state.scoreChalk;
     }
 
     updateScorePair(props) {
