@@ -37,6 +37,21 @@ export class FAQ extends Component {
                                     </Card.Body>
                                 </Accordion.Collapse>
                             </Card>
+
+                            <Card>
+                                <Accordion.Toggle as={Card.Header} eventKey="2">
+                                    How does the Quizlet game help you improve?
+                                </Accordion.Toggle>
+
+                                <Accordion.Collapse eventKey="2">
+                                    <Card.Body>
+                                        The Quizlet game is designed to help you improve your cognitive ability by improving your memory, and reasoning 
+                                        abilities. This game takes the skills learn from the other two games and challenges you to put them all to use.
+                                        By playing this game repeatedly you will test your ability to remember not only information on a variety of topics, 
+                                        but also how to reason which answers are definitely right or wrong. 
+                                    </Card.Body>
+                                </Accordion.Collapse>
+                            </Card>
                         </div>
                     </Accordion>
                 </div>
