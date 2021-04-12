@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import "./homepage.css";
-import Auth from "./Auth";
+import Auth from "./auth";
 import MinigameMenu from "./MinigameMenu";
 import FAQ from "./FAQ";
 import UserAssessment from "./UserAssessment";

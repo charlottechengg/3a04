@@ -29,7 +29,9 @@ module.exports = {
         });
     },
     handleLogin: function(gid, name, email) {
-        const newRow = `${gid},${name},${email}\n`;
+        const time = new Date().toLocaleTimeString();
+        const date = new Date().toLocaleDateString();
+        const newRow = `${date},${time},${gid},${name},${email}\n`;
         fs.appendFileSync(authPath, newRow);
     }
 }
