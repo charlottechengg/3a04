@@ -8,6 +8,9 @@ export class FAQ extends Component {
         return (
             <>
                 <div className="faq-container">
+
+                    <h1 className="title-faq"> FAQ </h1>
+
                     <Accordion className="faq-accordion">
                         <div className="faq-cards">
                             <Card>

@@ -1,9 +1,16 @@
 .faq-container {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     width: 100vw;
     height: 100vh;
 }
+
+.title-faq {
+    color: rgb(255, 119, 0);
+    font-size: 50px;
+    margin-bottom: 80px;
+    margin-top: 0px;
+  }
 
 .faq-accordion{
     align-content: center;
@@ -16,10 +23,4 @@
 .faq-cards{
     margin: auto;
     height: 50%;
-}
-
-.card{
-    padding: 10px;
-    margin: auto;
-    width: 50%;
 }

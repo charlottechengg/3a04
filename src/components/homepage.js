@@ -15,10 +15,10 @@ class Homepage extends React.Component {
       showScores : false,
       showHomepage : true
     };
-    this.hideComponent = this.hideComponent.bind(this);
+    this.showComponent = this.showComponent.bind(this);
   }
 
-  hideComponent(name) {
+  showComponent(name) {
     switch (name) {
       case "showFAQ":
         this.setState({ 
@@ -100,7 +100,7 @@ class Homepage extends React.Component {
               <Button
                 variant="contained"
                 color="primary"
-                onClick={() => this.hideComponent("showScores")}
+                onClick={() => this.showComponent("showScores")}
                 style={{
                   maxWidth: "160x",
                   maxHeight: "80px",
@@ -116,7 +116,7 @@ class Homepage extends React.Component {
               <Button
                 variant="contained"
                 color="primary"
-                onClick={() => this.hideComponent("showFAQ")}
+                onClick={() => this.showComponent("showFAQ")}
                 style={{
                   maxWidth: "160x",
                   maxHeight: "80px",
@@ -140,7 +140,7 @@ class Homepage extends React.Component {
                   className="back-button" 
                   variant="contained"
                   color="primary"
-                  onClick={() => this.hideComponent("showHomepage")}
+                  onClick={() => this.showComponent("showHomepage")}
                   > 
               {""}
                 Back
@@ -156,11 +156,9 @@ class Homepage extends React.Component {
                   className="back-button" 
                   variant="contained"
                   color="primary"
-                  onClick={() => this.hideComponent("showHomepage")}
+                  onClick={() => this.showComponent("showHomepage")}
                   > 
-              {""}
-                Back
-              {""} 
+              {""}Back{""} 
               </Button>
               <UserAssessment />
             </div>
