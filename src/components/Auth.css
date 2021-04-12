@@ -1,0 +1,18 @@
+g {
+    display: none;
+}
+
+.img-mainpage div .side-button-mainpage button div {
+    display: none;
+}
+
+.img-mainpage div .side-button-mainpage button span {
+    padding: 10px 20px 10px 20px important!;
+}
+
+.side-button-mainpage button {
+    width: 0;
+    height: 1px;
+    margin-top: 20px;
+    transform: translateX(-2px);
+}
