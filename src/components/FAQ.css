@@ -1,0 +1,25 @@
+.faq-container {
+    display: flex;
+    flex-flow: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+.faq-accordion{
+    align-content: center;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    font-size: 18px;
+}
+
+.faq-cards{
+    margin: auto;
+    height: 50%;
+}
+
+.card{
+    padding: 10px;
+    margin: auto;
+    width: 50%;
+}
