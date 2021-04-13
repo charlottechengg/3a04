@@ -71,11 +71,11 @@ class ScoreButton extends Component {
     return this.state.scoreChalk;
   }
 
-  updateScorePair(props) {
+  updateScorePair(scores, timeLeft) {
     if (this.state.shouldUpdateScore) {
         this.state.shouldUpdateScore = false;
 
-        this.state.scorePair = props.scores + props.timeLeft * 2;
+        this.state.scorePair = scores + timeLeft * 2;
         userAssessment.setStateData("Pokemon");
         userAssessment.updateData(new Date().toLocaleString(), this.state.scorePair);
         userAssessment.setStateData("Pokemon");

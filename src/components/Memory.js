@@ -87,7 +87,7 @@ export default function Memory() {
       setScore(scores);
       if (scores >= 120) {
         let timeLeft = seconds; //THIS IS ALWAYS READING 50? NEEDS TO READ THE ACTUAL TIME LEFT
-        setScore(scoreManager.updateScorePair({scores, timeLeft}));
+        setScore(scoreManager.updateScorePair(scores, timeLeft));
         setPopUp(true);
       }
     }
