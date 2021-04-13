@@ -198,7 +198,7 @@ class UserAssessment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSet: chalkboardData,
+      dataSet: pokemonData,
       avgScore: 0,
       maxScore: 0,
       minScore: 0,
@@ -300,6 +300,4 @@ class UserAssessment extends React.Component {
   }
 }
 
-const userAssessment = new UserAssessment();
-
-export default userAssessment;
+export default UserAssessment;

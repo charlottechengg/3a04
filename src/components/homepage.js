@@ -4,7 +4,7 @@ import "./homepage.css";
 import Auth from "./auth";
 import MinigameMenu from "./MinigameMenu";
 import FAQ from "./FAQ";
-import userAssessment from "./UserAssessment";
+import UserAssessment from "./UserAssessment";
 import Chalkboard from "./Chalkboard.js";
 
 class Homepage extends React.Component {
@@ -112,8 +112,7 @@ class Homepage extends React.Component {
                 Back
                 {""}
               </Button>
-
-              {userAssessment.render()}
+              <UserAssessment />
             </div>
           )}
           {showFAQ && (
