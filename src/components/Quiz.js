@@ -74,6 +74,7 @@ const Quiz = () => {
 
 	const shuffle = (arr) => arr.sort(() => Math.random() - 0.5);
 	const pickAnswer = (e) => {
+		scoreManager.startedNewGame();
 		let userAnswer = e.target.outerText;
 		let correct = quiz[number].answer === userAnswer;
 		if (correct) setScore(score + 1);
@@ -84,6 +85,7 @@ const Quiz = () => {
 	};
 
 	const reset = () => {
+		scoreManager.startedNewGame();
 		setQuiz([]);
 		setNumber(0);
 		setScore(0);
