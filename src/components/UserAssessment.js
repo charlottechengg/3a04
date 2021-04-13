@@ -134,7 +134,7 @@ const chalkboardData = {
 
 const quizData = {
   chart: {
-    caption: "Quizlet",
+    caption: "Wuhoo",
     yaxisname: "Score",
     subcaption: "[Last 10 games]",
     numbersuffix: "",
@@ -198,7 +198,7 @@ class UserAssessment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: chalkboardData,
+      dataSet: chalkboardData,
       avgScore: 0,
       maxScore: 0,
       minScore: 0,
@@ -214,26 +214,28 @@ class UserAssessment extends React.Component {
     var minVal = 9999;
     var avgVal = 0;
 
-    Object.keys(data).forEach(function (key) {
-      arr.push(data[key]);
+    Object.keys(data.data).forEach(function (key) {
+      arr.push(data.data[key]);
     });
 
     for (let i = 0; i < arr.length; i++) {
-      avgVal = avgVal + arr[i].value;
+      var value = parseFloat(arr[i]);
+      
+      avgVal = avgVal + value;
 
-      if (arr[i] > maxVal) {
-        maxVal = arr[i].value;
+      if (value > maxVal) {
+        maxVal = value;
       }
 
-      if (arr[i] < minVal) {
-        minVal = arr[i].value;
+      if (value < minVal) {
+        minVal = value;
       }
     }
 
     avgVal = avgVal / arr.length;
 
     this.setState({
-      data: data,
+      dataSet: data,
       maxScore: maxVal,
       minScore: minVal,
       avgScore: avgVal,
@@ -247,9 +249,8 @@ class UserAssessment extends React.Component {
         break;
       case "Pokemon":
         this.setStateData(pokemonData);
-        console.log("clicking Pokemon");
         break;
-      case "Quiz":
+      case "Wuhoo":
         this.setStateData(quizData);
         break;
       default:
@@ -262,12 +263,11 @@ class UserAssessment extends React.Component {
   }
 
   render() {
-    const { data, maxScore, minScore, avgScore } = this.state;
+    const { dataSet, maxScore, minScore, avgScore } = this.state;
 
     return (
       <>
         <div>
-          {" "}
           <DropdownButton id="dropdown-basic-button" title="Select Minigame">
             <Dropdown.Item onClick={() => this.selectMinigame("Chalkboard")}>
               Chalkboard Challenge
@@ -275,8 +275,8 @@ class UserAssessment extends React.Component {
             <Dropdown.Item onClick={() => this.selectMinigame("Pokemon")}>
               Match Pokemons
             </Dropdown.Item>
-            <Dropdown.Item onClick={() => this.selectMinigame("Quiz")}>
-              Quizlet
+            <Dropdown.Item onClick={() => this.selectMinigame("Wuhoo")}>
+              Wuhoo
             </Dropdown.Item>
           </DropdownButton>
           <ReactFusioncharts
@@ -284,12 +284,15 @@ class UserAssessment extends React.Component {
             width="100%"
             height="70%"
             dataFormat="JSON"
-            dataSource={data}
+            dataSource={dataSet}
           />
-          <div>
+          <div style={{color:"red"}}>
             <label> Minimum Score Per Game: {minScore}</label>
+            <br/>
             <label> Maximum Score Per Game: {maxScore}</label>
+            <br/>
             <label> Average Score Per Game: {avgScore}</label>
+            <br/>
           </div>
         </div>
       </>
