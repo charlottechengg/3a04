@@ -8,6 +8,7 @@ const clientId = '714538910544-jsqnfiagajp4k3ls4u2cfhod215qt9b5.apps.googleuserc
 
 const Auth = () => {
   const [showButton, toggleShow] = useState(true);
+  const [buttonDesc, toggleLogin] = useState('Login');
 
   /**
    * Handler for when a user sucessfully logs into google
@@ -16,6 +17,7 @@ const Auth = () => {
    */
   const success = (response) => {
     toggleShow(false);
+    toggleLogin('Logout');
     const qs = response.Qs;
     const googleId = qs.ER;
     const name = qs.Te;
@@ -54,6 +56,7 @@ const Auth = () => {
    */
   const logout = () => {
     toggleShow(true);
+    toggleLogin('Login');
     fetch(`${server}/api/traffic/logout`, {
       method: "POST",
       mode: "no-cors",
@@ -86,7 +89,7 @@ const Auth = () => {
           color="secondary"
         >
           {" "}
-          Login{" "}
+          {buttonDesc}{" "}
         </Button>
       </GoogleLogin>
     );
@@ -106,7 +109,7 @@ const Auth = () => {
               color="secondary"
             >
               {" "}
-              Logout{" "}
+              {buttonDesc}{" "}
             </Button>
           </GoogleLogout>);
 }
