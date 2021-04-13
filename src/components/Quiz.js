@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useHistory } from 'react';
 import GameHeader from './GameHeader';
 import correctImg from './Assets/check.png';
 import wrongImg from './Assets/delete.png';
@@ -33,6 +33,10 @@ const Rules = (props) => {
 };
 
 const Gameover = (props) => {
+	// const history = useHistory();
+	// function handleBack(path) {
+	// 	history.push(path);
+	// }
 	return (
 		<div className="quiz-rules-container">
 			<h4 className="rules-title">
@@ -55,6 +59,7 @@ const Gameover = (props) => {
 						<button className="quiz-option" onClick={props.reset}>
 							Play Again
 						</button>
+
 					</div>
 				)}
 			</div>
@@ -73,6 +78,7 @@ const Quiz = () => {
 	const [addSeconds, setAddSeconds] = useState(0);
 
 	const shuffle = (arr) => arr.sort(() => Math.random() - 0.5);
+
 	const pickAnswer = (e) => {
 		scoreManager.startedNewGame();
 		let userAnswer = e.target.outerText;
@@ -136,13 +142,14 @@ const Quiz = () => {
 				);
 			})
 			.catch((err) => console.error(err));
-		
 	}, [gameOver]);
 
 	return (
 		<div className="quiz">
 			{rules && <Rules closeRules={() => setRules(!rules)} />}
-			{gameOver && <Gameover score={score} reset={reset} numCorrect={score} currIndex={number} />}
+			{gameOver && (
+				<Gameover score={score} reset={reset} numCorrect={score} currIndex={number} />
+			)}
 			{!rules && (
 				<div className="quiz-container">
 					<div>
@@ -160,25 +167,25 @@ const Quiz = () => {
 							levelCount={level}
 							addSeconds={addSeconds}
 						/>
-						{quiz[number] && <div>
-							<div
-								className="quiz-question"
-								dangerouslySetInnerHTML={{ __html: quiz[number].question }}
-							></div>
-							<div className="quiz-options">
-								{quiz[number].options.map((item, index) => (
-									<div
-										className="quiz-option"
-										key={index}
-										dangerouslySetInnerHTML={{ __html: item }}
-										onClick={pickAnswer}
-									></div>
-								))}
+						{quiz[number] && (
+							<div>
+								<div
+									className="quiz-question"
+									dangerouslySetInnerHTML={{ __html: quiz[number].question }}
+								></div>
+								<div className="quiz-options">
+									{quiz[number].options.map((item, index) => (
+										<div
+											className="quiz-option"
+											key={index}
+											dangerouslySetInnerHTML={{ __html: item }}
+											onClick={pickAnswer}
+										></div>
+									))}
+								</div>
 							</div>
-                        
-						</div>
-                    }
-                    <div className="quiz-bottom" id="quiz-bottom"></div>
+						)}
+						<div className="quiz-bottom" id="quiz-bottom"></div>
 					</div>
 				</div>
 			)}

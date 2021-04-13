@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useHistory } from 'react';
 import '../Chalkboard.css';
 import GameHeader from './GameHeader.js';
 import Pair from './Pair.js';
@@ -44,6 +44,7 @@ class Chalkboard extends Component {
 		this.updateTimer = this.updateTimer.bind(this);
 		this.handlePause = this.handlePause.bind(this);
 		this.onExit = this.onExit.bind(this);
+		this.handleBack = this.handleBack.bind(this);
 	}
 
 	componentWillMount() {
@@ -60,7 +61,9 @@ class Chalkboard extends Component {
 		});
 		window.addEventListener('keydown', this.keyHandling);
 	}
-
+	handleBack() {
+		this.props.history.push("/");
+	}
 	async resetGame() {
 		let [exps, vals] = this.generateRandomExpressions();
 		this.setState({
@@ -272,7 +275,7 @@ class Chalkboard extends Component {
 							numCorrect={this.state.numCorrect}
 							currIndex={this.state.currIndex}
 							levelCount={this.state.levelCount}
-							gameOver= {this.state.gameOver}
+							gameOver={this.state.gameOver}
 						/>
 
 						<div className="game-content" id="game-middle">
@@ -286,19 +289,24 @@ class Chalkboard extends Component {
 													<div>
 														Accuracy{' '}
 														{this.state.currIndex &&
-															scoreManager.updateScoreChalk(this.state.numCorrect, this.state.currIndex)
-															}
+															scoreManager.updateScoreChalk(
+																this.state.numCorrect,
+																this.state.currIndex
+															)}
 														%
 													</div>
 													<button className="btn-chalk" onClick={this.resetGame}>
 														Play Again
+													</button>
+													<button className="btn-chalk" onClick={() => this.handleBack('')}>
+														Exit
 													</button>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							) : (!this.gameOver && !this.state.pause) ? (
+							) : !this.gameOver && !this.state.pause ? (
 								<Pair
 									rightExpression={this.state.rightExpressions[this.state.currIndex]}
 									leftExpression={this.state.leftExpressions[this.state.currIndex]}
