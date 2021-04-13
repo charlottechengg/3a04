@@ -1,21 +1,21 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
 class ScoreButton extends Component {
-    state = {
-        userID: 0,
-        userName: 'User',
-        scoreChalk: 0,
-        scorePair: 0,
-        scoreQuiz: 0,
-        text: 'dummy',
-        showScore: false
-    };
+  state = {
+    userID: 0,
+    userName: "User",
+    scoreChalk: 0,
+    scorePair: 0,
+    scoreQuiz: 0,
+    text: "dummy",
+    showScore: false,
+  };
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        // This binding is necessary to make `this` work in the callback
-        /*this.regenerateText = this.regenerateText.bind(this);
+    // This binding is necessary to make `this` work in the callback
+    /*this.regenerateText = this.regenerateText.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.updateUser = this.updateUser.bind(this);
         this.updateScoreChalk = this.updateScoreChalk.bind(this);
@@ -23,52 +23,58 @@ class ScoreButton extends Component {
         this.updateScoreQuiz = this.updateScoreQuiz.bind(this);
         this.getText = this.getText.bind(this);*/
 
-        this.regenerateText();
-    }
+    this.regenerateText();
+  }
 
-    regenerateText() {
-        /*this.setState(state => ({
+  regenerateText() {
+    /*this.setState(state => ({
             text: state.userName + ' (#' + state.userID + '): Chalkboard Score is '
                 + state.scoreChalk + ', Pair Score is '
                 + state.scorePair + ', Quiz Score is '
                 + state.scoreQuiz
         }));*/
 
-        this.state.text = this.state.userName + ': Chalkboard Score is ' //' (#' + this.state.userID + '): Chalkboard Score is '
-            + this.state.scoreChalk + ', Pair Score is '
-            + this.state.scorePair + ', Quiz Score is '
-            + this.state.scoreQuiz;
-    }
+    this.state.text =
+      this.state.userName +
+      ": Chalkboard Score is " + //' (#' + this.state.userID + '): Chalkboard Score is '
+      this.state.scoreChalk +
+      ", Pair Score is " +
+      this.state.scorePair +
+      ", Quiz Score is " +
+      this.state.scoreQuiz;
+  }
 
-    handleClick() {
-        this.state.showScore = !this.state.showScore;
-    }
+  handleClick() {
+    this.state.showScore = !this.state.showScore;
+  }
 
-    updateUser(props) {
-        this.state.userID = props.newID;
-        this.state.userName = props.newName;
-    }
+  updateUser(props) {
+    this.state.userID = props.newID;
+    this.state.userName = props.newName;
+  }
 
-    updateScoreChalk(numCorrect, currIndex) {
-        this.state.scoreChalk = Math.round(numCorrect * 100 / currIndex);
-        return this.state.scoreChalk;
-    }
+  updateScoreChalk(numCorrect, currIndex) {
+    this.state.scoreChalk = Math.round((numCorrect * 100) / currIndex);
+    return this.state.scoreChalk;
+  }
 
-    updateScorePair(props) {
-        this.state.scorePair = props.scores + props.timeLeft * 2;
-        return this.state.scorePair;
-    }
+  updateScorePair(props) {
+    this.state.scorePair = props.scores + props.timeLeft * 2;
+    return this.state.scorePair;
+  }
 
-    updateScoreQuiz(props) {
-        this.state.scoreQuiz = Math.round((props.numCorrect * 100) / props.currIndex);
-    }
+  updateScoreQuiz(props) {
+    this.state.scoreQuiz = Math.round(
+      (props.numCorrect * 100) / props.currIndex
+    );
+  }
 
-    getText() {
-        this.regenerateText();
-        return this.state.text;
-    }
+  getText() {
+    this.regenerateText();
+    return this.state.text;
+  }
 
-    /*render() {
+  /*render() {
         const {text, showScore} = this.state;
 
         return (
