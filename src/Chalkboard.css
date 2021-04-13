@@ -3,7 +3,6 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
   font-family: "Fredericka the Great", cursive;
 }
 
@@ -41,6 +40,7 @@ body {
   justify-content: flex-end;
 }
 .header {
+  font-family: "Fredericka the Great", cursive;
   background-color: rgba(240, 255, 255, 0.596);
   border-radius: 2rem;
   padding: 1rem;
@@ -65,7 +65,7 @@ body {
 
 .expression {
   background-color: rgba(240, 255, 255, 0.596);
-
+  font-family: "Fredericka the Great", cursive;
   border-radius: 2rem;
   padding: 1rem;
   font-size: 2.3rem;
@@ -86,7 +86,6 @@ body {
   -ms-flex: 1;
   flex: 1;
   display: flex;
-
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
@@ -120,6 +119,9 @@ body {
   display: inline-block;
   position: relative;
   border-radius: 1rem;
+}
+.rules-title-span{
+  font-size: 6rem;
 }
 
 .instruction {

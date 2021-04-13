@@ -79,7 +79,7 @@ const Quiz = () => {
 		if (correct) setScore(score + 1);
 		setNumber(number + 1);
 		updateNextLevel(correct);
-		if (number == 9) setGameOver(true);
+		if (number == 29) setGameOver(true);
 		displayCorrectness(correct);
 	};
 
@@ -123,7 +123,7 @@ const Quiz = () => {
 
 	useEffect(() => {
 		axios
-			.get('https://opentdb.com/api.php?amount=10&category=18&difficulty=easy')
+			.get('https://opentdb.com/api.php?amount=30&category=18&difficulty=easy')
 			.then((res) => {
 				setQuiz(
 					res.data.results.map((item) => ({
@@ -134,6 +134,7 @@ const Quiz = () => {
 				);
 			})
 			.catch((err) => console.error(err));
+		
 	}, [gameOver]);
 
 	return (
