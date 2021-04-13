@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import userAssessment from './UserAssessment.js';
+import {pokemonData, chalkboardData, quizData} from './UserAssessment.js';
 
 class ScoreButton extends Component {
   state = {
@@ -64,9 +64,10 @@ class ScoreButton extends Component {
         this.state.shouldUpdateScore = false;
 
         this.state.scoreChalk = Math.round((numCorrect * 100) / currIndex);
-        userAssessment.setStateData("Chalkboard");
-        userAssessment.updateData(new Date().toLocaleString(), this.state.scoreChalk);
-        userAssessment.setStateData("Chalkboard");
+        chalkboardData.data.push({label: new Date().toLocaleString(), value: this.state.scoreChalk});
+        /*UserAssessment.setStateData("Chalkboard");
+        UserAssessment.updateData(new Date().toLocaleString(), this.state.scoreChalk);
+        UserAssessment.setStateData("Chalkboard");*/
     }
     return this.state.scoreChalk;
   }
@@ -76,9 +77,10 @@ class ScoreButton extends Component {
         this.state.shouldUpdateScore = false;
 
         this.state.scorePair = scores + timeLeft * 2;
-        userAssessment.setStateData("Pokemon");
-        userAssessment.updateData(new Date().toLocaleString(), this.state.scorePair);
-        userAssessment.setStateData("Pokemon");
+        pokemonData.data.push({label: new Date().toLocaleString(), value: this.state.scorePair});
+        /*UserAssessment.setStateData("Pokemon");
+        UserAssessment.updateData(new Date().toLocaleString(), this.state.scorePair);
+        UserAssessment.setStateData("Pokemon");*/
     }
     return this.state.scorePair;
   }
@@ -88,9 +90,10 @@ class ScoreButton extends Component {
         this.state.shouldUpdateScore = false;
 
         this.state.scoreQuiz = Math.round((numCorrect * 100) / currIndex);
-        userAssessment.setStateData("Quiz");
-        userAssessment.updateData(new Date().toLocaleString(), this.state.scoreQuiz);
-        userAssessment.setStateData("Quiz");
+        quizData.data.push({label: new Date().toLocaleString(), value: this.state.scoreQuiz});
+        /*UserAssessment.setStateData("Quiz");
+        UserAssessment.updateData(new Date().toLocaleString(), this.state.scoreQuiz);
+        UserAssessment.setStateData("Quiz");*/
     }
     return this.state.scoreQuiz;
   }

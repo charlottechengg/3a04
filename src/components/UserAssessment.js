@@ -198,14 +198,14 @@ class UserAssessment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSet: pokemonData,
+      dataSet: chalkboardData,
       avgScore: 0,
       maxScore: 0,
       minScore: 0,
     };
     this.selectMinigame = this.selectMinigame.bind(this);
     this.setStateData = this.setStateData.bind(this);
-    this.updateData = this.updateData.bind(this);
+    //this.updateData = this.updateData.bind(this);
   }
 
   setStateData(data) {
@@ -258,10 +258,6 @@ class UserAssessment extends React.Component {
     }
   }
 
-  updateData(label, value) {
-    this.state.data.data.push({label, value});
-  }
-
   render() {
     const { dataSet, maxScore, minScore, avgScore } = this.state;
 
@@ -300,4 +296,5 @@ class UserAssessment extends React.Component {
   }
 }
 
+export{pokemonData, chalkboardData, quizData};
 export default UserAssessment;
