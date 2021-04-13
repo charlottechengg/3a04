@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import "./homepage.css";
+import Auth from "./auth";
 import MinigameMenu from "./MinigameMenu";
 import FAQ from "./FAQ";
 import UserAssessment from "./UserAssessment";
@@ -45,10 +46,6 @@ class Homepage extends React.Component {
     }
   }
 
-  message() {
-    console.log(1);
-  }
-
   render() {
     const { showFAQ, showScores, showHomepage } = this.state;
 
@@ -58,25 +55,7 @@ class Homepage extends React.Component {
           {showHomepage && (
             <div>
               <div className="side-button-mainpage">
-                <Button
-                  style={{ marginRight: "10px" }}
-                  size="small"
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => this.message()}
-                >
-                  {" "}
-                  sign in{" "}
-                </Button>
-                <Button
-                  size="small"
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => this.message()}
-                >
-                  {" "}
-                  log in{" "}
-                </Button>
+                <Auth />
               </div>
               <h1 className="title-mainpage"> WISER </h1>
 
@@ -116,49 +95,47 @@ class Homepage extends React.Component {
               <MinigameMenu />
             </div>
           )}
+          {showScores && (
+            <div className="scorespage">
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => this.hideComponent("showHomepage")}
+                style={{
+                  maxWidth: "160x",
+                  maxHeight: "80px",
+                  minWidth: "160px",
+                  minHeight: "80px",
+                }}
+              >
+                {""}
+                Back
+                {""}
+              </Button>
+              <UserAssessment />
+            </div>
+          )}
+          {showFAQ && (
+            <div className="faq-container">
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => this.hideComponent("showHomepage")}
+                style={{
+                  maxWidth: "160x",
+                  maxHeight: "80px",
+                  minWidth: "160px",
+                  minHeight: "80px",
+                }}
+              >
+                {""}
+                Back
+                {""}
+              </Button>
+              <FAQ />
+            </div>
+          )}
         </div>
-
-        {showScores && (
-          <div className="scorespage">
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => this.hideComponent("showHomepage")}
-              style={{
-                maxWidth: "160x",
-                maxHeight: "80px",
-                minWidth: "160px",
-                minHeight: "80px",
-              }}
-            >
-              {""}
-              Back
-              {""}
-            </Button>
-
-            <UserAssessment />
-          </div>
-        )}
-        {showFAQ && (
-          <div className="faq-container">
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => this.hideComponent("showHomepage")}
-              style={{
-                maxWidth: "160x",
-                maxHeight: "80px",
-                minWidth: "160px",
-                minHeight: "80px",
-              }}
-            >
-              {""}
-              Back
-              {""}
-            </Button>
-            <FAQ />
-          </div>
-        )}
       </div>
     );
   }

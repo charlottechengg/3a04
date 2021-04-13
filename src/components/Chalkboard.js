@@ -9,6 +9,7 @@ import wrongImg from './Assets/delete.png';
 import leftArrowImg from './Assets/left-arrow.png';
 import rightArrowImg from './Assets/right-arrow.png';
 import upArrowImg from './Assets/up-arrow.png';
+import scoreManager from './ScoreButton.js';
 class Chalkboard extends Component {
 	constructor(props) {
 		super(props);
@@ -77,6 +78,7 @@ class Chalkboard extends Component {
 			addSeconds: 0,
 			pause: false,
 		});
+		scoreManager.startedNewGame();
 	}
 
 	keyHandling(e) {
@@ -284,9 +286,8 @@ class Chalkboard extends Component {
 													<div>
 														Accuracy{' '}
 														{this.state.currIndex &&
-															Math.round(
-																(this.state.numCorrect * 100) / this.state.currIndex
-															)}
+															scoreManager.updateScoreChalk(this.state.numCorrect, this.state.currIndex)
+															}
 														%
 													</div>
 													<button className="btn-chalk" onClick={this.resetGame}>
