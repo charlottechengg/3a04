@@ -1,9 +1,23 @@
 /* defaults */
 /* =============================================== */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
 }
 
+@keyframes para {
+  100% {
+    background-position: -5000px 20%, -800px 95%, 500px 50%, 1000px 100%,
+      400px 0;
+  }
+}
 body {
   --light: hsl(0, 0%, 100%);
   --background: linear-gradient(
@@ -53,7 +67,7 @@ a:link {
   background: hsla(0, 0%, 40%, 0.6);
 }
 
-.modal {
+.modal_memory {
   width: 60rem;
   padding: 4rem 2rem;
   border-radius: 0.8rem;

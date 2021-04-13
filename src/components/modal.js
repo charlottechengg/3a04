@@ -4,9 +4,8 @@ export default function Modal(props) {
   const { onChange, Replay, score } = props;
   return (
     <div>
-      {/* <div className="o"></div> */}
       <div class="modal-container modal-opened">
-        <div class="modal">
+        <div class="modal_memory">
           <div class="modal__details">
             <h1 class="modal__title">Congratulations!</h1>
             <p class="modal__description">
