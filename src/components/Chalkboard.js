@@ -78,6 +78,7 @@ class Chalkboard extends Component {
 			addSeconds: 0,
 			pause: false,
 		});
+		scoreManager.startedNewGame();
 	}
 
 	keyHandling(e) {

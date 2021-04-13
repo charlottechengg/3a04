@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import userAssessment from './UserAssessment.js';
 
 class ScoreButton extends Component {
   state = {
@@ -9,6 +10,7 @@ class ScoreButton extends Component {
     scoreQuiz: 0,
     text: "dummy",
     showScore: false,
+    shouldUpdateScore: false
   };
 
   constructor(props) {
@@ -53,20 +55,44 @@ class ScoreButton extends Component {
     this.state.userName = props.newName;
   }
 
+  startedNewGame() {
+      this.state.shouldUpdateScore = true;
+  }
+
   updateScoreChalk(numCorrect, currIndex) {
-    this.state.scoreChalk = Math.round((numCorrect * 100) / currIndex);
+    if (this.state.shouldUpdateScore) {
+        this.state.shouldUpdateScore = false;
+
+        this.state.scoreChalk = Math.round((numCorrect * 100) / currIndex);
+        userAssessment.setStateData("Chalkboard");
+        userAssessment.updateData(new Date().toLocaleString(), this.state.scoreChalk);
+        userAssessment.setStateData("Chalkboard");
+    }
     return this.state.scoreChalk;
   }
 
   updateScorePair(props) {
-    this.state.scorePair = props.scores + props.timeLeft * 2;
+    if (this.state.shouldUpdateScore) {
+        this.state.shouldUpdateScore = false;
+
+        this.state.scorePair = props.scores + props.timeLeft * 2;
+        userAssessment.setStateData("Pokemon");
+        userAssessment.updateData(new Date().toLocaleString(), this.state.scorePair);
+        userAssessment.setStateData("Pokemon");
+    }
     return this.state.scorePair;
   }
 
-  updateScoreQuiz(props) {
-    this.state.scoreQuiz = Math.round(
-      (props.numCorrect * 100) / props.currIndex
-    );
+  updateScoreQuiz(numCorrect, currIndex) {
+    if (this.state.shouldUpdateScore) {
+        this.state.shouldUpdateScore = false;
+
+        this.state.scoreQuiz = Math.round((numCorrect * 100) / currIndex);
+        userAssessment.setStateData("Quiz");
+        userAssessment.updateData(new Date().toLocaleString(), this.state.scoreQuiz);
+        userAssessment.setStateData("Quiz");
+    }
+    return this.state.scoreQuiz;
   }
 
   getText() {

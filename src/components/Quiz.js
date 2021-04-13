@@ -4,6 +4,7 @@ import correctImg from './Assets/check.png';
 import wrongImg from './Assets/delete.png';
 import '../Quiz.css';
 import axios from 'axios';
+import scoreManager from './ScoreButton.js';
 
 const Rules = (props) => {
 	return (
@@ -43,7 +44,7 @@ const Gameover = (props) => {
 						<br />
 						Scores {props.score}
 						<br />
-						Accuracy {props.currIndex && Math.round((props.numCorrect * 100) / props.currIndex)}%
+						Accuracy {props.currIndex && scoreManager.updateScoreQuiz(props.numCorrect, props.currIndex)}%
 						<br />
 						Keep up the work!
 						<br />

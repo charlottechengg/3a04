@@ -103,6 +103,7 @@ export default function Memory() {
     setPairOfPokemons(shuffle([...pokemons, ...pokemons]));
     console.log(seconds);
     SetTimecontrol(false);
+    scoreManager.startedNewGame();
   };
   const handleReply = (e) => {
     console.log(seconds);
@@ -113,6 +114,7 @@ export default function Memory() {
     setPairOfPokemons(shuffle([...pokemons, ...pokemons]));
     setPopUp(false);
     SetTimecontrol(false);
+    scoreManager.startedNewGame();
   };
 
   const history = useHistory();

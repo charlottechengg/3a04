@@ -65,7 +65,7 @@ const pokemonData = {
     },
     {
       label: "2021-04-10",
-      value: "91.8",
+      value: "100",
     },
   ],
 };
@@ -127,7 +127,7 @@ const chalkboardData = {
     },
     {
       label: "2021-04-10",
-      value: "91.8",
+      value: "110",
     },
   ],
 };
@@ -189,7 +189,7 @@ const quizData = {
     },
     {
       label: "2021-04-10",
-      value: "91.8",
+      value: "120",
     },
   ],
 };
@@ -205,12 +205,13 @@ class UserAssessment extends React.Component {
     };
     this.selectMinigame = this.selectMinigame.bind(this);
     this.setStateData = this.setStateData.bind(this);
+    this.updateData = this.updateData.bind(this);
   }
 
   setStateData(data) {
     var arr = [];
     var maxVal = 0;
-    var minVal = 200;
+    var minVal = 9999;
     var avgVal = 0;
 
     Object.keys(data).forEach(function (key) {
@@ -256,6 +257,10 @@ class UserAssessment extends React.Component {
     }
   }
 
+  updateData(label, value) {
+    this.state.data.data.push({label, value});
+  }
+
   render() {
     const { data, maxScore, minScore, avgScore } = this.state;
 
@@ -292,4 +297,6 @@ class UserAssessment extends React.Component {
   }
 }
 
-export default UserAssessment;
+const userAssessment = new UserAssessment();
+
+export default userAssessment;
