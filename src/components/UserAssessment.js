@@ -4,6 +4,7 @@ import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
+import "./UserAssessment.css"
 
 // Resolves charts dependancy
 charts(FusionCharts);
@@ -22,51 +23,7 @@ const pokemonData = {
     {
       label: "2021-04-01",
       value: "89.45",
-    },
-    {
-      label: "2021-04-02",
-      value: "89.87",
-    },
-    {
-      label: "2021-04-12",
-      value: "89.64",
-    },
-    {
-      label: "2021-04-10",
-      value: "90.13",
-    },
-    {
-      label: "2021-04-05",
-      value: "90.67",
-    },
-    {
-      label: "2021-04-06",
-      value: "90.54",
-    },
-    {
-      label: "2021-04-07",
-      value: "90.75",
-    },
-    {
-      label: "2021-04-08",
-      value: "90.8",
-    },
-    {
-      label: "2021-04-09",
-      value: "91.16",
-    },
-    {
-      label: "2021-04-11",
-      value: "91.37",
-    },
-    {
-      label: "2021-04-12",
-      value: "91.66",
-    },
-    {
-      label: "2021-04-10",
-      value: "100",
-    },
+    }
   ],
 };
 
@@ -84,51 +41,7 @@ const chalkboardData = {
     {
       label: "2021-04-01",
       value: "89.45",
-    },
-    {
-      label: "2021-04-02",
-      value: "89.87",
-    },
-    {
-      label: "2021-04-12",
-      value: "89.64",
-    },
-    {
-      label: "2021-04-10",
-      value: "90.13",
-    },
-    {
-      label: "2021-04-05",
-      value: "90.67",
-    },
-    {
-      label: "2021-04-06",
-      value: "90.54",
-    },
-    {
-      label: "2021-04-07",
-      value: "90.75",
-    },
-    {
-      label: "2021-04-08",
-      value: "90.8",
-    },
-    {
-      label: "2021-04-09",
-      value: "91.16",
-    },
-    {
-      label: "2021-04-11",
-      value: "91.37",
-    },
-    {
-      label: "2021-04-12",
-      value: "91.66",
-    },
-    {
-      label: "2021-04-10",
-      value: "110",
-    },
+    }
   ],
 };
 
@@ -148,49 +61,25 @@ const quizData = {
       value: "89.45",
     },
     {
-      label: "2021-04-02",
-      value: "89.87",
+      label: "2021-04-01",
+      value: "1",
     },
     {
-      label: "2021-04-12",
-      value: "89.64",
-    },
-    {
-      label: "2021-04-10",
-      value: "90.13",
-    },
-    {
-      label: "2021-04-05",
-      value: "90.67",
-    },
-    {
-      label: "2021-04-06",
-      value: "90.54",
-    },
-    {
-      label: "2021-04-07",
-      value: "90.75",
-    },
-    {
-      label: "2021-04-08",
-      value: "90.8",
-    },
-    {
-      label: "2021-04-09",
-      value: "91.16",
-    },
-    {
-      label: "2021-04-11",
-      value: "91.37",
-    },
-    {
-      label: "2021-04-12",
-      value: "91.66",
-    },
-    {
-      label: "2021-04-10",
+      label: "2021-04-01",
       value: "120",
     },
+    {
+      label: "2021-04-01",
+      value: "50",
+    },
+    {
+      label: "2021-04-01",
+      value: "33",
+    },
+    {
+      label: "2021-04-01",
+      value: "21",
+    }
   ],
 };
 
@@ -215,7 +104,7 @@ class UserAssessment extends React.Component {
     var avgVal = 0;
 
     Object.keys(data.data).forEach(function (key) {
-      arr.push(data.data[key]);
+      arr.push(data.data[key].value);
     });
 
     for (let i = 0; i < arr.length; i++) {
@@ -232,7 +121,7 @@ class UserAssessment extends React.Component {
       }
     }
 
-    avgVal = avgVal / arr.length;
+    avgVal = Math.round(avgVal / arr.length);
 
     this.setState({
       dataSet: data,
@@ -282,10 +171,10 @@ class UserAssessment extends React.Component {
             dataFormat="JSON"
             dataSource={dataSet}
           />
-          <div style={{color:"red"}}>
-            <label> Minimum Score Per Game: {minScore}</label>
+          <div className="score-labels">
+            <label> Minimum Score: {minScore}</label>
             <br/>
-            <label> Maximum Score Per Game: {maxScore}</label>
+            <label> Maximum Score: {maxScore}</label>
             <br/>
             <label> Average Score Per Game: {avgScore}</label>
             <br/>
