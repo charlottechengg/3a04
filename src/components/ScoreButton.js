@@ -76,7 +76,7 @@ class ScoreButton extends Component {
     if (this.state.shouldUpdateScore) {
         this.state.shouldUpdateScore = false;
 
-        this.state.scorePair = scores + timeLeft * 2;
+        this.state.scorePair = scores;// + timeLeft * 2;
         pokemonData.data.push({label: new Date().toLocaleString(), value: this.state.scorePair});
         /*UserAssessment.setStateData("Pokemon");
         UserAssessment.updateData(new Date().toLocaleString(), this.state.scorePair);

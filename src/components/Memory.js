@@ -87,7 +87,10 @@ export default function Memory() {
       setScore(scores);
       if (scores >= 120) {
         let timeLeft = seconds; //THIS IS ALWAYS READING 50? NEEDS TO READ THE ACTUAL TIME LEFT
-        scoreManager.updateScorePair({ scores, timeLeft });
+        scoreManager.startedNewGame();
+        scoreManager.updateScorePair(scores, timeLeft);
+        //scores = scoreManager.updateScorePair(scores, timeLeft);
+        //setScore(scores);
         setPopUp(true);
       }
     }
@@ -103,7 +106,6 @@ export default function Memory() {
     setPairOfPokemons(shuffle([...pokemons, ...pokemons]));
     console.log(seconds);
     SetTimecontrol(false);
-    scoreManager.startedNewGame();
   };
   const handleReply = (e) => {
     console.log(seconds);
@@ -114,7 +116,6 @@ export default function Memory() {
     setPairOfPokemons(shuffle([...pokemons, ...pokemons]));
     setPopUp(false);
     SetTimecontrol(false);
-    scoreManager.startedNewGame();
   };
 
   const history = useHistory();
