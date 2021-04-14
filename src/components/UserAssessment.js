@@ -161,7 +161,7 @@ class UserAssessment extends React.Component {
               Match Pokemons
             </Dropdown.Item>
             <Dropdown.Item onClick={() => this.selectMinigame("Wuhoo")}>
-              Wuhoo
+              Wuhoo!
             </Dropdown.Item>
           </DropdownButton>
           <ReactFusioncharts

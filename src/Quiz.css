@@ -63,7 +63,7 @@
 	left: 50%;
 	/* bring your own prefixes */
 	transform: translate(-50%, -50%);
-	height: 45%;
+	height: 60%;
 	width: 50%;
     align-content: center;
     background:url("./components/Assets/ipad.jpg");

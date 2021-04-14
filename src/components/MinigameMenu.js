@@ -15,7 +15,7 @@ const MinigameMenu = () => {
   }
   return (
     <div className="menu-container">
-      <h1>Get started.</h1>
+      <h1 className="menu-title">Get started.</h1>
       <div className="cards_menu">
         <span className="cards__item">
           <span className="card">
@@ -23,7 +23,7 @@ const MinigameMenu = () => {
             <div className="card__content">
               <div className="card__title">Chalkboard Challenge</div>
               <p className="card__text">
-                Author: Manyi Cheng. <br />
+                Developer: Manyi Cheng <br />
                 Challenge your calculation and estimation with our best math
                 game. Chalkboard Challenge improves the quantitative reasoning
                 and problem-solving skills.{" "}
@@ -44,6 +44,7 @@ const MinigameMenu = () => {
             <div className="card__content">
               <div className="card__title">Match Pokemons</div>
               <p className="card__text">
+                Developer: Shuming Zhang <br/>
                 Challenge yourself with the most popular memory game. Quickly
                 memorizing and comparing the pokemons challenges your working
                 memory.
@@ -63,6 +64,7 @@ const MinigameMenu = () => {
             <div className="card__content">
               <div className="card__title">Wuhoo!</div>
               <p className="card__text">
+                Developer: Manyi Cheng <br />
                 Challenge your knowledge with the most popular quiz game. Pick
                 the correct option challenges your understanding of computer
                 science.

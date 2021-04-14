@@ -1,5 +1,8 @@
 .score-labels {
-    color: rgb(8, 31, 235);
+    color: #0b2535;;
     font-size: 15px;
-    background-color: rgb(5, 236, 198);
+    background-color: white;
+}
+.dropdown-basic-button{
+    font-size: 15px;
 }

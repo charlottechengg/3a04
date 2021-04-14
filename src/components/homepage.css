@@ -14,9 +14,8 @@
 
 .title-mainpage {
   color: rgb(255, 119, 0);
-  font-size: 50px;
-  margin-bottom: 80px;
-  margin-top: 0px;
+  font-size: 10rem;
+  margin: 8%;
 }
 
 .button-mainpage {

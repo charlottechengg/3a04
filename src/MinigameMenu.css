@@ -1,4 +1,5 @@
 .menu-container {
+  margin-top: 20vh;
   color: white;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
@@ -18,7 +19,10 @@
   background-size: cover;
   position: sticky;
 }
-
+.menu-title{
+  font-size: 8rem;
+  margin:6rem;
+}
 .cards_menu {
   color: #001c2d;
   display: inline-flex;

@@ -65,10 +65,11 @@ class Homepage extends React.Component {
                   color="primary"
                   onClick={() => this.hideComponent("showScores")}
                   style={{
-                    maxWidth: "160x",
+                    maxWidth: "160px",
                     maxHeight: "80px",
                     minWidth: "160px",
                     minHeight: "80px",
+                    fontSize:"3rem",
                   }}
                 >
                   {" "}
@@ -81,10 +82,11 @@ class Homepage extends React.Component {
                   color="primary"
                   onClick={() => this.hideComponent("showFAQ")}
                   style={{
-                    maxWidth: "160x",
+                    maxWidth: "160px",
                     maxHeight: "80px",
                     minWidth: "160px",
                     minHeight: "80px",
+                    fontSize:"3rem",
                   }}
                 >
                   {" "}
@@ -102,10 +104,11 @@ class Homepage extends React.Component {
                 color="primary"
                 onClick={() => this.hideComponent("showHomepage")}
                 style={{
-                  maxWidth: "160x",
-                  maxHeight: "80px",
-                  minWidth: "160px",
-                  minHeight: "80px",
+                  fontSize:"2rem",
+                  position:"absolute",
+                  left:"0",
+                  top:"0",
+                  margin:"10px",
                 }}
               >
                 {""}
@@ -122,10 +125,10 @@ class Homepage extends React.Component {
                 color="primary"
                 onClick={() => this.hideComponent("showHomepage")}
                 style={{
-                  maxWidth: "160x",
-                  maxHeight: "80px",
-                  minWidth: "160px",
-                  minHeight: "80px",
+                  fontSize:"2rem",
+                  position:"absolute",
+                  left:"0",
+                  top:"0",
                 }}
               >
                 {""}
