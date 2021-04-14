@@ -5,6 +5,7 @@ import wrongImg from './Assets/delete.png';
 import '../Quiz.css';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import scoreManager from './ScoreButton';
 const Rules = (props) => {
 	return (
 		<div className="quiz-rules-container">
@@ -47,7 +48,7 @@ const Gameover = (props) => {
 						<br />
 						Scores {props.score}
 						<br />
-						Accuracy {props.currIndex && Math.round((props.numCorrect * 100) / props.currIndex)}
+						Accuracy {props.currIndex && scoreManager.updateScoreQuiz(props.numCorrect, props.currIndex)}
 						%
 						<br />
 						Keep up the work!
@@ -81,6 +82,7 @@ const Quiz = () => {
 
 	const shuffle = (arr) => arr.sort(() => Math.random() - 0.5);
 	const pickAnswer = (e) => {
+		scoreManager.startedNewGame();
 		let userAnswer = e.target.outerText;
 		let correct = quiz[number].answer === userAnswer;
 		if (correct) setScore(score + 1);
@@ -91,6 +93,7 @@ const Quiz = () => {
 	};
 
 	const reset = () => {
+		scoreManager.startedNewGame();
 		setQuiz([]);
 		setNumber(0);
 		setScore(0);
